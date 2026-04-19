@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@import "tailwindcss";
+
+:root {
+  --navy: #1A2E4A;
+  --navy-deep: #111F33;
+  --gold: #C9A84C;
+  --gold-light: #E8D4A0;
+  --white: #FAFAF8;
+  --grey-light: #F4F5F6;
+  --grey-mid: #D0D4D8;
+  --grey-text: #4A5568;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  color: var(--grey-text);
+  background-color: var(--white);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--navy); }
+
+.gold-rule { width: 48px; height: 3px; background: var(--gold); margin-bottom: 1.5rem; }
+
+a, button { transition: all 0.2s ease; }
+
+.course-card { transition: transform 0.2s ease, box-shadow 0.2s ease; }
+.course-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(26,46,74,0.15); }
+
+.nav-link { position: relative; }
+.nav-link::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 1px; background: var(--gold); transition: width 0.2s ease; }
+.nav-link:hover::after { width: 100%; }
+
+.pillar-card { border-top: 4px solid var(--grey-mid); transition: border-color 0.2s ease; }
+.pillar-card:hover { border-top-color: var(--gold); }
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.fade-in { animation: fadeInUp 0.7s ease-out forwards; }
+.fade-in-delay-1 { animation: fadeInUp 0.7s 0.15s ease-out both; }
+.fade-in-delay-2 { animation: fadeInUp 0.7s 0.3s ease-out both; }
