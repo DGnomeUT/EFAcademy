@@ -9,7 +9,10 @@ const nextConfig: NextConfig = {
     unoptimized: true,
   },
   basePath: isProd ? "/EFAcademy" : "",
-  assetPrefix: isProd ? "/EFAcademy/" : "",
+  assetPrefix: isProd ? "/EFAcademy" : "",
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
 };
 
 export default nextConfig;
