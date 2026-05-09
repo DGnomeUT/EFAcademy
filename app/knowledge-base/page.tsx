@@ -1,4 +1,12 @@
+import type { Metadata } from "next";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Knowledge Base | Deal Education & Resources Library",
+  description:
+    "29 deal domains. Guides, model templates, case studies, and term sheet templates — curated for practitioners, not students. Launching soon alongside the expanded course catalogue.",
+  alternates: { canonical: "https://executivefinanceacademy.com/knowledge-base" },
+};
 
 const categories = [
   "Alternative Credit", "Asset Management Guides", "Capital Markets", "Carve-outs & Spin-offs",
@@ -12,66 +20,126 @@ const categories = [
 ];
 
 const resourceTypes = [
-  { type: "Guides", desc: "In-depth written frameworks and how-to guides for specific deal processes", access: "Free" },
-  { type: "Model Templates", desc: "FAST-compliant Excel models for LBO, DCF, merger, and debt capacity analysis", access: "Enrolled Students" },
-  { type: "Case Studies", desc: "Real transaction analyses with structure, rationale, and lessons learned", access: "Free / Enrolled" },
-  { type: "Term Sheet Vault", desc: "Standardised term sheet templates for PE, VC, Sukuk, and credit facilities", access: "Enrolled Students" },
+  {
+    type: "Guides",
+    desc: "In-depth written frameworks and how-to guides for specific deal processes and transaction structures.",
+    access: "Free",
+  },
+  {
+    type: "Model Templates",
+    desc: "FAST-compliant Excel models for LBO, DCF, merger, and debt capacity analysis — built to institutional standards.",
+    access: "Enrolled Students",
+  },
+  {
+    type: "Case Studies",
+    desc: "Real transaction analyses with structure, rationale, and lessons learned from practitioners.",
+    access: "Free / Enrolled",
+  },
+  {
+    type: "Term Sheet Vault",
+    desc: "Standardised term sheet templates for PE, VC, Sukuk, and credit facilities — directly usable in transactions.",
+    access: "Enrolled Students",
+  },
 ];
 
 export default function KnowledgeBasePage() {
   return (
     <>
-      <section className="bg-[#1A2E4A] pt-36 pb-16 px-6 lg:px-10">
-        <div className="max-w-7xl mx-auto">
-          <p className="text-[#C9A84C] text-xs font-bold tracking-[0.2em] uppercase mb-3">Knowledge Base</p>
-          <h1 className="font-serif text-white text-4xl md:text-5xl font-bold mb-4 max-w-2xl">
-            The Deal Education & Resources Library.
+      {/* Hero */}
+      <section className="page-hero">
+        <div className="container">
+          <div className="eyebrow">Knowledge Base</div>
+          <h1 className="page-h1">
+            The Deal Education<br />
+            <em>&amp; Resources Library.</em>
           </h1>
-          <p className="text-[#E8D4A0] text-lg max-w-xl leading-relaxed">
-            29 deal domains. Guides, models, case studies, and term sheet templates — curated for practitioners, not students.
+          <p className="page-subtitle">
+            29 deal domains. Guides, models, case studies, and term sheet templates —
+            curated for practitioners, not students.
           </p>
         </div>
       </section>
 
-      <section className="bg-white py-20 px-6 lg:px-10">
-        <div className="max-w-7xl mx-auto">
-          {/* Resource types */}
-          <div className="gold-rule" />
-          <h2 className="font-serif text-[#1A2E4A] text-2xl font-bold mb-8">Resource Types</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 mb-16">
+      {/* Resource types */}
+      <section className="section-pad section-light">
+        <div className="container">
+          <div className="gold-rule reveal" />
+          <h2 className="section-h2 reveal">Resource Types</h2>
+          <div
+            className="reveal"
+            style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "2px", background: "var(--divider-light)", marginTop: "32px" }}
+          >
             {resourceTypes.map((r) => (
-              <div key={r.type} className="bg-[#F4F5F6] p-6 border-t-4 border-[#C9A84C]">
-                <p className="text-[#C9A84C] text-xs font-bold uppercase tracking-widest mb-2">{r.type}</p>
-                <p className="text-[#4A5568] text-sm leading-relaxed mb-3">{r.desc}</p>
-                <p className="text-[#1A2E4A] text-xs font-semibold">Access: {r.access}</p>
-              </div>
-            ))}
-          </div>
-
-          {/* Coming soon notice */}
-          <div className="bg-[#F4F5F6] border-l-4 border-[#C9A84C] p-6 mb-14">
-            <h3 className="font-serif text-[#1A2E4A] text-lg font-bold mb-2">Knowledge Base Launching Soon</h3>
-            <p className="text-[#4A5568] text-sm leading-relaxed mb-4">
-              The full resource library is currently being built. Enrolled students on the Tokenization programme gain early access to relevant models and case studies through the Teachable platform. The public knowledge base will launch alongside the expanded course catalogue.
-            </p>
-            <Link href="/enrol" className="text-[#C9A84C] text-sm font-semibold hover:underline">
-              Register for early access →
-            </Link>
-          </div>
-
-          {/* Categories */}
-          <div className="gold-rule" />
-          <h2 className="font-serif text-[#1A2E4A] text-2xl font-bold mb-6">Browse by Deal Domain</h2>
-          <p className="text-[#4A5568] mb-8">Our 29 deal domains cover the full spectrum of professional finance activity.</p>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
-            {categories.map((cat) => (
-              <div key={cat} className="bg-[#F4F5F6] px-4 py-3 border border-[#D0D4D8] hover:border-[#C9A84C] transition-colors cursor-default">
-                <p className="text-[#4A5568] text-sm">{cat}</p>
+              <div key={r.type} className="card" style={{ borderTop: "2px solid var(--gold)" }}>
+                <p style={{ fontSize: "10px", letterSpacing: "0.22em", textTransform: "uppercase", color: "var(--gold)", marginBottom: "14px" }}>
+                  {r.type}
+                </p>
+                <p className="section-body" style={{ fontSize: "14px", marginBottom: "16px" }}>{r.desc}</p>
+                <p style={{ fontSize: "11px", letterSpacing: "0.08em", textTransform: "uppercase", color: "var(--ink-soft)" }}>
+                  Access: {r.access}
+                </p>
               </div>
             ))}
           </div>
         </div>
       </section>
+
+      {/* Coming soon notice */}
+      <section className="section-grey" style={{ padding: "56px 0" }}>
+        <div className="container">
+          <div
+            className="reveal"
+            style={{
+              display: "grid", gridTemplateColumns: "1fr auto", gap: "40px",
+              alignItems: "center", padding: "40px", background: "var(--cream)",
+              borderLeft: "2px solid var(--gold)",
+            }}
+          >
+            <div>
+              <h3 className="section-h3" style={{ marginBottom: "12px" }}>Knowledge Base Launching Soon</h3>
+              <p className="section-body" style={{ fontSize: "14px", maxWidth: "600px" }}>
+                The full resource library is currently being built. Enrolled students on the Tokenization programme
+                gain early access to relevant models and case studies through the Teachable platform. The public
+                knowledge base will launch alongside the expanded course catalogue.
+              </p>
+            </div>
+            <div style={{ flexShrink: 0 }}>
+              <Link href="/enrol" className="btn-primary">Register for Early Access</Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Categories */}
+      <section className="section-pad section-light">
+        <div className="container">
+          <div className="gold-rule reveal" />
+          <h2 className="section-h2 reveal">Browse by Deal Domain</h2>
+          <p className="section-body reveal" style={{ marginBottom: "32px" }}>
+            Our 29 deal domains cover the full spectrum of professional finance activity.
+            Resources are indexed and searchable by deal type, jurisdiction, and asset class.
+          </p>
+          <div className="kb-categories reveal">
+            {categories.map((cat) => (
+              <div key={cat} className="kb-category">{cat}</div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <div className="cta-band reveal">
+        <div className="cta-band-left">
+          <h2 className="cta-band-title">Start With a Course.</h2>
+          <p className="cta-band-body">
+            Enrolled students get early access to relevant resources. Begin with Real World Tokenization.
+          </p>
+        </div>
+        <div className="cta-band-actions">
+          <Link href="/courses" className="btn-primary">View Courses</Link>
+          <Link href="/enrol" className="btn-ghost">Get in Touch</Link>
+        </div>
+      </div>
     </>
   );
 }

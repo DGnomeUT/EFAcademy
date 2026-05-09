@@ -1,418 +1,330 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import Image from "next/image";
+import FaqAccordion from "@/components/FaqAccordion";
+import HomeInteractive from "@/components/HomeInteractive";
 
 export const metadata: Metadata = {
   title: "Executive Finance Academy | Practitioner-Built Finance Courses for Executives",
   description:
     "Global online finance courses for CFOs, fund managers, and senior investment professionals. Real World Tokenization from $500. Private Equity, M&A, Leveraged Finance coming soon. 100% practitioner-authored.",
-  alternates: {
-    canonical: "https://executivefinanceacademy.com",
-  },
+  alternates: { canonical: "https://executivefinanceacademy.com" },
 };
 
-const TOKENIZATION_BASIC_URL =
+const FOUNDATION_URL =
   "https://the-executive-finance-academy.teachable.com/p/asset-tokenization-executive-programme";
-const TOKENIZATION_PREMIUM_URL =
+const EXECUTIVE_URL =
   "https://the-executive-finance-academy.teachable.com/p/asset-tokenization-executive-programme1";
 
-const pillars = [
-  { num: "01", title: "Private Markets & Alternatives", items: ["Private Equity", "Venture Capital", "Alternative Credit", "Real Estate Funds"] },
-  { num: "02", title: "Transaction Strategy & M&A", items: ["M&A Execution", "Due Diligence", "Post-Merger Integration", "Carve-outs & Spin-offs"] },
-  { num: "03", title: "Technical Modelling", items: ["FAST / F1F9 Modelling", "LBO Analysis", "Valuation Frameworks", "Financial Statements"] },
-  { num: "04", title: "Special Situations", items: ["Distressed M&A", "Debt Restructuring", "Securitisation", "Special Situations"] },
-  { num: "05", title: "Frontier Finance", items: ["Real World Tokenization", "Islamic Finance & Sukuk", "SPACs", "Digital Asset Structures"] },
-];
-
-const differentiators = [
-  {
-    icon: "◈",
-    heading: "Built by Those Who Have Done the Deal",
-    copy: "Every module is authored and delivered by practitioners who have structured transactions, managed funds, and advised boards — not academics who have studied them. You receive frameworks stress-tested in live deal environments.",
-  },
-  {
-    icon: "◈",
-    heading: "Technical Rigour Without the Theory Tax",
-    copy: "We strip away academic abstraction and build from first principles. Whether you are modelling an LBO, structuring a digital security, or evaluating a tokenised fund offering, the logic is grounded, defensible, and deployable on your next transaction.",
-  },
-  {
-    icon: "◈",
-    heading: "Built for Every Major Financial Centre",
-    copy: "Our curriculum is designed for executives operating across the world's leading capital markets — UK, US, EU, Singapore, Hong Kong, and the Gulf. One online platform, every jurisdiction that matters.",
-  },
-];
-
-const stats = [
-  { stat: "29+", label: "Deal Topic Domains" },
-  { stat: "16", label: "Modules in Premium" },
-  { stat: "6+", label: "Global Jurisdictions" },
-  { stat: "100%", label: "Practitioner-Authored" },
-];
-
-const faqs = [
-  {
-    q: "What is Executive Finance Academy?",
-    a: "Executive Finance Academy (EFA) is a global online finance education platform offering practitioner-built courses for senior finance professionals. EFA programmes cover private markets, transaction structuring, digital assets, and frontier finance — designed for CFOs, fund managers, investment principals, and corporate finance executives operating across international capital markets. Every course is authored exclusively by practitioners who have structured transactions, sat on investment committees, managed portfolios, and advised boards.",
-  },
-  {
-    q: "Who are Executive Finance Academy courses designed for?",
-    a: "EFA courses are designed for senior finance professionals: Group CFOs, private equity principals, fund managers, investment bankers, corporate finance directors, family office executives, and legal advisors active in capital markets. The programmes are written at executive altitude — for professionals who make investment decisions, chair deal teams, and present to boards. They are not designed for entry-level analysts or students.",
-  },
-  {
-    q: "What courses does Executive Finance Academy currently offer?",
-    a: "Executive Finance Academy currently offers two programmes on Real World Tokenization: a Foundation Programme ($500, 8 modules) and an Executive Programme ($1,250, 16 modules with 46 video lessons, detailed module notes, executive question sets with answer keys, and curated bibliographies). Upcoming programmes include Private Equity & LBO Modelling, M&A Execution, Leveraged Finance & Private Credit, Due Diligence, Venture Capital, and Islamic Finance & Shariah-Compliant Structuring.",
-  },
-  {
-    q: "How is Executive Finance Academy different from Wall Street Prep or similar platforms?",
-    a: "Unlike Wall Street Prep, Breaking Into Wall Street, and similar platforms — which are primarily designed for entry-level analysts seeking jobs in investment banking — Executive Finance Academy is built exclusively for senior professionals already operating in deal environments. EFA content is authored by practitioners with board-level and investment committee experience. EFA does not teach you how to get into finance; it makes you more effective at the senior level you already hold.",
-  },
-  {
-    q: "How is Executive Finance Academy different from business school executive education?",
-    a: "Unlike executive education programmes at institutions such as LBS, INSEAD, or Wharton — which are typically campus-based, generalist in scope, and priced at thousands of pounds per programme — Executive Finance Academy offers highly specialised, on-demand technical programmes starting from $500. EFA content is authored by active deal practitioners rather than faculty researchers, and is designed to be deployed immediately in a live deal or board context rather than applied abstractly.",
-  },
-  {
-    q: "Is Executive Finance Academy available globally?",
-    a: "Yes. Executive Finance Academy is a fully online platform available to finance professionals worldwide. The curriculum covers the regulatory and legal frameworks of the UK, United States, European Union, Singapore, Hong Kong, and Gulf markets. All programmes are delivered in English and are accessible on demand from any location.",
-  },
-  {
-    q: "Do Executive Finance Academy courses include a certificate?",
-    a: "Yes. All Executive Finance Academy programmes include a certificate of completion, issued upon finishing all modules of the respective programme.",
-  },
+const tickerItems = [
+  "Private Equity", "Real World Tokenization", "Leveraged Finance",
+  "M&A Execution", "LBO Modelling", "Distressed M&A",
+  "Islamic Finance & Sukuk", "FAST Modelling", "Debt Restructuring",
+  "SPACs", "Securitisation", "Valuation Frameworks",
+  "Digital Asset Structures", "Regulatory Compliance", "Due Diligence",
 ];
 
 const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
-  mainEntity: faqs.map((f) => ({
-    "@type": "Question",
-    name: f.q,
-    acceptedAnswer: {
-      "@type": "Answer",
-      text: f.a,
-    },
-  })),
+  mainEntity: [
+    { "@type": "Question", name: "What is Executive Finance Academy?", acceptedAnswer: { "@type": "Answer", text: "Executive Finance Academy is an online finance education platform built by practitioners for senior finance professionals, covering private markets, M&A, special situations, and frontier finance." } },
+    { "@type": "Question", name: "Who are Executive Finance Academy courses designed for?", acceptedAnswer: { "@type": "Answer", text: "Senior finance professionals — CFOs, principals, fund managers, investment directors, general counsels, and board advisors — who need executable technical knowledge." } },
+    { "@type": "Question", name: "What courses does Executive Finance Academy currently offer?", acceptedAnswer: { "@type": "Answer", text: "Our inaugural programme is Real World Tokenization, available at Foundation ($500) and Executive ($1,250) tiers." } },
+  ],
 };
 
 export default function HomePage() {
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <HomeInteractive />
 
-      {/* ── HERO ───────────────────────────────────────────────────────── */}
-      <section className="bg-[#1A2E4A] min-h-screen flex flex-col justify-center px-6 lg:px-10 pt-24 pb-16 relative overflow-hidden">
-        <div className="absolute right-0 top-1/2 -translate-y-1/2 opacity-5 pointer-events-none hidden lg:block">
-          <Image src="/logo-mark.png" alt="" width={480} height={480} />
+      {/* ── HERO ── */}
+      <section id="hero">
+        <div className="hero-left">
+          <div className="hero-eyebrow">
+            <div className="hero-eyebrow-line" />
+            <span>Practitioner-Led · Deal-Driven · Globally Relevant</span>
+          </div>
+          <h1 className="hero-title">Deal-Level<br /><em>Precision.</em></h1>
+          <p className="hero-body">Executive Finance Academy delivers practitioner-built online finance courses for CFOs, principals, fund managers, and senior investment professionals operating across global capital markets.</p>
+          <p className="hero-sub">Executive finance education rebuilt from first principles — for the deal room, not the classroom.</p>
+          <div className="hero-actions">
+            <Link href="/courses" className="btn-primary">Explore Courses</Link>
+            <Link href="/about" className="btn-ghost">Our Philosophy</Link>
+          </div>
         </div>
 
-        <div className="max-w-7xl mx-auto w-full">
-          <p className="text-[#C9A84C] text-xs font-bold tracking-[0.25em] uppercase mb-6 fade-in">
-            Practitioner-Led &nbsp;·&nbsp; Deal-Driven &nbsp;·&nbsp; Globally Relevant
-          </p>
-          <h1 className="font-serif text-white text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 max-w-3xl fade-in-delay-1">
-            Where Executive Intelligence Meets{" "}
-            <span className="text-[#C9A84C]">Deal-Level Precision.</span>
-          </h1>
-          <p className="text-[#E8D4A0] text-lg md:text-xl max-w-2xl mb-4 leading-relaxed fade-in-delay-2">
-            Executive Finance Academy delivers practitioner-built online finance courses for CFOs, principals, fund managers, and senior investment professionals operating across global capital markets.
-          </p>
-          <p className="text-[#E8D4A0]/70 text-base max-w-2xl mb-10 leading-relaxed fade-in-delay-2">
-            Executive finance education rebuilt from first principles — for the deal room, not the classroom.
-          </p>
-          <div className="flex flex-wrap gap-4">
-            <Link
-              href="/courses"
-              className="px-8 py-4 bg-[#C9A84C] text-[#1A2E4A] font-bold text-sm tracking-wide hover:bg-[#E8D4A0] transition-colors"
-            >
-              Explore Courses
-            </Link>
-            <Link
-              href="/about"
-              className="px-8 py-4 border border-[#C9A84C] text-[#C9A84C] font-semibold text-sm tracking-wide hover:bg-[#C9A84C] hover:text-[#1A2E4A] transition-colors"
-            >
-              Our Philosophy
-            </Link>
+        <div className="hero-right">
+          <div className="hero-right-bg" aria-hidden="true">
+            <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M100 10L185 55V145L100 190L15 145V55L100 10Z" stroke="white" strokeWidth="0.5"/>
+              <path d="M100 30L170 67.5V132.5L100 170L30 132.5V67.5L100 30Z" stroke="white" strokeWidth="0.5"/>
+              <path d="M100 50L155 80V120L100 150L45 120V80L100 50Z" stroke="white" strokeWidth="0.5"/>
+              <path d="M100 70L140 92.5V107.5L100 130L60 107.5V92.5L100 70Z" stroke="white" strokeWidth="0.5"/>
+            </svg>
+          </div>
+
+          <div className="hero-feature-list">
+            <div className="hero-feature-item">
+              <div className="hero-feature-icon">
+                <svg viewBox="0 0 14 14" fill="none"><path d="M1 13L5 8L8 11L13 4" stroke="#C9A85C" strokeWidth="0.8"/></svg>
+              </div>
+              <div>
+                <div className="hero-feature-title">Deal-Room Frameworks</div>
+                <div className="hero-feature-desc">Every module is built around real transaction structures, not academic case studies</div>
+              </div>
+            </div>
+            <div className="hero-feature-item">
+              <div className="hero-feature-icon">
+                <svg viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="5.5" stroke="#C9A85C" strokeWidth="0.8"/><path d="M7 4v3.5l2 1.5" stroke="#C9A85C" strokeWidth="0.8"/></svg>
+              </div>
+              <div>
+                <div className="hero-feature-title">On-Demand Access</div>
+                <div className="hero-feature-desc">Learn at deal pace — video modules, written notes, and executive question sets</div>
+              </div>
+            </div>
+            <div className="hero-feature-item">
+              <div className="hero-feature-icon">
+                <svg viewBox="0 0 14 14" fill="none"><path d="M2 12V7l5-5 5 5v5H9V9H5v3H2Z" stroke="#C9A85C" strokeWidth="0.8" fill="none"/></svg>
+              </div>
+              <div>
+                <div className="hero-feature-title">6+ Global Jurisdictions</div>
+                <div className="hero-feature-desc">UK, US, EU, Singapore, Hong Kong, and Gulf regulatory coverage in every programme</div>
+              </div>
+            </div>
+            <div className="hero-feature-item">
+              <div className="hero-feature-icon">
+                <svg viewBox="0 0 14 14" fill="none"><rect x="2" y="4" width="10" height="7" rx="0.5" stroke="#C9A85C" strokeWidth="0.8"/><path d="M5 4V3a2 2 0 014 0v1" stroke="#C9A85C" strokeWidth="0.8"/></svg>
+              </div>
+              <div>
+                <div className="hero-feature-title">Certificate of Completion</div>
+                <div className="hero-feature-desc">Verifiable credential issued upon successful completion of each programme</div>
+              </div>
+            </div>
+          </div>
+
+          <div className="hero-stats">
+            <div className="hero-stat">
+              <div className="hero-stat-num">29+</div>
+              <div className="hero-stat-label">Deal Topic Domains</div>
+            </div>
+            <div className="hero-stat">
+              <div className="hero-stat-num">16</div>
+              <div className="hero-stat-label">Modules in Premium</div>
+            </div>
+            <div className="hero-stat">
+              <div className="hero-stat-num">6+</div>
+              <div className="hero-stat-label">Global Jurisdictions</div>
+            </div>
+            <div className="hero-stat">
+              <div className="hero-stat-num">100%</div>
+              <div className="hero-stat-label">Practitioner-Authored</div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* ── STATS BAR ─────────────────────────────────────────────────── */}
-      <section className="bg-[#F4F5F6] py-10 px-6 lg:px-10 border-b border-[#D0D4D8]">
-        <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8">
-          {stats.map((s) => (
-            <div key={s.stat} className="text-center">
-              <p className="font-serif text-[#1A2E4A] text-2xl md:text-3xl font-bold mb-1">{s.stat}</p>
-              <p className="text-[#4A5568] text-sm">{s.label}</p>
-            </div>
+      {/* ── TICKER ── */}
+      <div className="ticker-bar" aria-hidden="true">
+        <div className="ticker-track">
+          {[...tickerItems, ...tickerItems].map((item, i) => (
+            <span key={i}>
+              <span className="ticker-item">{item}</span>
+              <span className="ticker-sep">·</span>
+            </span>
           ))}
         </div>
-      </section>
+      </div>
 
-      {/* ── WHY EFA ───────────────────────────────────────────────────── */}
-      <section className="bg-white py-20 px-6 lg:px-10">
-        <div className="max-w-7xl mx-auto">
-          <p className="text-[#C9A84C] text-xs font-bold tracking-[0.2em] uppercase mb-3">Why Executive Finance Academy?</p>
-          <h2 className="font-serif text-[#1A2E4A] text-3xl md:text-4xl font-bold mb-4 max-w-2xl">
-            Finance Education Rebuilt From First Principles.
-          </h2>
-          <p className="text-[#4A5568] text-base max-w-2xl mb-14 leading-relaxed">
-            The conventional executive education model — whether academic programmes at top business schools or analyst-focused online platforms — was not designed for the rhythm of senior deal execution. EFA was. Every module begins with the deal, not the textbook.
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {differentiators.map((d) => (
-              <div key={d.heading} className="course-card bg-[#F4F5F6] p-8 border-t-4 border-[#C9A84C]">
-                <p className="text-[#C9A84C] text-xl mb-4">{d.icon}</p>
-                <h3 className="font-serif text-[#1A2E4A] text-lg font-bold mb-3">{d.heading}</h3>
-                <p className="text-[#4A5568] text-sm leading-relaxed">{d.copy}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── COURSES ───────────────────────────────────────────────────── */}
-      <section className="bg-[#1A2E4A] py-20 px-6 lg:px-10">
-        <div className="max-w-7xl mx-auto">
-          <p className="text-[#C9A84C] text-xs font-bold tracking-[0.2em] uppercase mb-3 text-center">Launch Curriculum</p>
-          <h2 className="font-serif text-white text-3xl md:text-4xl font-bold mb-4 text-center">
-            One Subject. Two Levels of Mastery.
-          </h2>
-          <p className="text-[#E8D4A0] text-center max-w-2xl mx-auto mb-14">
-            Our inaugural online finance programme on Real World Tokenization is available at two tiers — choose the depth that matches your mandate.
-          </p>
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {/* Foundation Card */}
-            <div className="course-card bg-[#111F33] border-l-4 border-[#C9A84C] p-8 flex flex-col">
-              <div className="flex items-start justify-between gap-4 mb-2">
-                <span className="text-[#C9A84C] text-xs font-bold tracking-[0.2em] uppercase">Foundation Programme</span>
-                <span className="text-white font-serif text-2xl font-bold shrink-0">$500</span>
-              </div>
-              <h3 className="font-serif text-white text-2xl font-bold mb-3">Real World Tokenization</h3>
-              <p className="text-[#E8D4A0] text-sm mb-6 leading-relaxed">
-                The institutional framework for tokenising private assets and designing compliant digital securities. A rigorous on-demand finance certification for senior professionals encountering tokenised assets in a professional context.
-              </p>
-              <ul className="space-y-2 mb-8 flex-grow">
-                {[
-                  "8 on-demand video modules with slide presentations",
-                  "Tokenising private equity, real estate, and infrastructure",
-                  "Smart contract design for automated institutional compliance",
-                  "Regulatory frameworks: UK (FCA), US (SEC), EU, Singapore (MAS), Hong Kong (SFC), Gulf (DIFC/ADGM)",
-                  "Live tokenisation case studies across global markets",
-                  "Certificate of completion",
-                ].map((b) => (
-                  <li key={b} className="text-[#E8D4A0]/80 text-sm flex gap-2">
-                    <span className="text-[#C9A84C] shrink-0 mt-0.5">→</span>
-                    {b}
-                  </li>
-                ))}
-              </ul>
-              <a
-                href={TOKENIZATION_BASIC_URL}
-                target="_blank"
-                rel="noreferrer"
-                className="px-5 py-3 bg-[#C9A84C] text-[#1A2E4A] text-sm font-bold text-center hover:bg-[#E8D4A0] transition-colors"
-              >
-                Enrol — Foundation
-              </a>
+      {/* ── WHY EFA ── */}
+      <section className="section-light section-pad">
+        <div className="container">
+          <div className="why-grid">
+            <div className="why-left reveal">
+              <div className="eyebrow">Why Executive Finance Academy</div>
+              <h2 className="section-title">Finance Education<br />Rebuilt From<br />First Principles.</h2>
+              <p className="why-body">The conventional executive education model — whether academic programmes at top business schools or analyst-focused online platforms — was not designed for the rhythm of senior deal execution. EFA was. Every module begins with the deal, not the textbook.</p>
             </div>
-
-            {/* Executive / Premium Card */}
-            <div className="course-card bg-[#111F33] border-l-4 border-[#E8D4A0] p-8 flex flex-col relative overflow-hidden">
-              <div className="absolute top-4 right-4 bg-[#C9A84C] text-[#1A2E4A] text-xs font-bold px-3 py-1 tracking-wider uppercase">
-                Most Complete
+            <div className="value-props">
+              <div className="value-prop reveal reveal-delay-1">
+                <div className="value-prop-num">01</div>
+                <div className="value-prop-title">Built by Those Who Have Done the Deal</div>
+                <p className="value-prop-body">Every module is authored and delivered by practitioners who have structured transactions, managed funds, and advised boards — not academics who have studied them. You receive frameworks stress-tested in live deal environments.</p>
               </div>
-              <div className="flex items-start justify-between gap-4 mb-2">
-                <span className="text-[#E8D4A0] text-xs font-bold tracking-[0.2em] uppercase">Executive Programme</span>
-                <span className="text-white font-serif text-2xl font-bold shrink-0">$1,250</span>
+              <div className="value-prop reveal reveal-delay-2">
+                <div className="value-prop-num">02</div>
+                <div className="value-prop-title">Technical Rigour Without the Theory Tax</div>
+                <p className="value-prop-body">We strip away academic abstraction and build from first principles. Whether you are modelling an LBO, structuring a digital security, or evaluating a tokenised fund offering, the logic is grounded, defensible, and deployable on your next transaction.</p>
               </div>
-              <h3 className="font-serif text-white text-2xl font-bold mb-3">Real World Tokenization</h3>
-              <p className="text-[#E8D4A0] text-sm mb-6 leading-relaxed">
-                Everything in the Foundation Programme, plus a comprehensive institutional reference library — the complete online finance certification for executives who need to brief boards, evaluate vendor proposals, conduct due diligence, and build internal capability.
-              </p>
-              <ul className="space-y-2 mb-8 flex-grow">
-                {[
-                  "46 video lessons across 16 modules",
-                  "46 slide presentations (non-downloadable)",
-                  "16 detailed written module notes",
-                  "16 executive question sets — MCQs with answer keys & explanations",
-                  "16 curated bibliographies linking to primary research & regulatory documents",
-                  "Complete institutional reference for working knowledge",
-                  "Certificate of completion",
-                ].map((b) => (
-                  <li key={b} className="text-[#E8D4A0]/90 text-sm flex gap-2">
-                    <span className="text-[#E8D4A0] shrink-0 mt-0.5">→</span>
-                    {b}
-                  </li>
-                ))}
-              </ul>
-              <a
-                href={TOKENIZATION_PREMIUM_URL}
-                target="_blank"
-                rel="noreferrer"
-                className="px-5 py-3 bg-white text-[#1A2E4A] text-sm font-bold text-center hover:bg-[#E8D4A0] transition-colors"
-              >
-                Enrol — Executive Programme
-              </a>
+              <div className="value-prop reveal reveal-delay-3">
+                <div className="value-prop-num">03</div>
+                <div className="value-prop-title">Built for Every Major Financial Centre</div>
+                <p className="value-prop-body">Our curriculum is designed for executives operating across the world's leading capital markets — UK, US, EU, Singapore, Hong Kong, and the Gulf. One online platform, every jurisdiction that matters.</p>
+              </div>
             </div>
           </div>
+        </div>
+      </section>
 
-          <div className="text-center mt-10">
-            <Link href="/courses" className="text-[#C9A84C] text-sm font-semibold hover:text-[#E8D4A0] transition-colors">
-              View Full Course Catalogue →
-            </Link>
+      {/* ── COURSES / PRICING ── */}
+      <section id="courses" className="section-pad">
+        <div className="container">
+          <div className="pricing-intro reveal">
+            <div className="eyebrow" style={{ justifyContent: "center", color: "var(--gold)" }}>Our Inaugural Programme</div>
+            <h2 className="section-title section-title-light">Real World Tokenization</h2>
+            <p>Our inaugural online finance programme is available at two tiers — choose the depth that matches your mandate.</p>
+          </div>
+          <div className="pricing-grid">
+            <div className="pricing-card reveal reveal-delay-1">
+              <div className="pricing-tier">Foundation Programme</div>
+              <div className="pricing-course">Real World<br />Tokenization</div>
+              <div className="pricing-price">$500</div>
+              <p className="pricing-desc">The institutional framework for tokenising private assets and designing compliant digital securities. A rigorous on-demand finance certification for senior professionals encountering tokenised assets in a professional context.</p>
+              <div className="pricing-divider" />
+              <ul className="pricing-features">
+                <li>8 on-demand video modules with slide presentations</li>
+                <li>Tokenising private equity, real estate, and infrastructure</li>
+                <li>Smart contract design for automated institutional compliance</li>
+                <li>Regulatory frameworks: UK (FCA), US (SEC), EU, Singapore (MAS), Hong Kong (SFC), Gulf (DIFC/ADGM)</li>
+                <li>Live tokenisation case studies across global markets</li>
+                <li>Certificate of completion</li>
+              </ul>
+              <a href={FOUNDATION_URL} target="_blank" rel="noreferrer" className="btn-enrol-outline">Enrol — Foundation</a>
+            </div>
+
+            <div className="pricing-card featured reveal reveal-delay-2">
+              <div className="pricing-badge">Most Complete</div>
+              <div className="pricing-tier">Executive Programme</div>
+              <div className="pricing-course">Real World<br />Tokenization</div>
+              <div className="pricing-price">$1,250</div>
+              <p className="pricing-desc">Everything in the Foundation Programme, plus a comprehensive institutional reference library — the complete online finance certification for executives who need to brief boards, evaluate vendor proposals, conduct due diligence, and build internal capability.</p>
+              <div className="pricing-divider" />
+              <ul className="pricing-features">
+                <li>46 video lessons across 16 modules</li>
+                <li>46 slide presentations (non-downloadable)</li>
+                <li>16 detailed written module notes</li>
+                <li>16 executive question sets — MCQs with answer keys &amp; explanations</li>
+                <li>16 curated bibliographies linking to primary research &amp; regulatory documents</li>
+                <li>Complete institutional reference for working knowledge</li>
+                <li>Certificate of completion</li>
+              </ul>
+              <a href={EXECUTIVE_URL} target="_blank" rel="noreferrer" className="btn-enrol-gold">Enrol — Executive Programme</a>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* ── CURRICULUM PILLARS ────────────────────────────────────────── */}
-      <section className="bg-[#F4F5F6] py-20 px-6 lg:px-10">
-        <div className="max-w-7xl mx-auto">
-          <p className="text-[#C9A84C] text-xs font-bold tracking-[0.2em] uppercase mb-3 text-center">The Curriculum Architecture</p>
-          <h2 className="font-serif text-[#1A2E4A] text-3xl md:text-4xl font-bold mb-4 text-center">
-            Five Pillars. A Complete Transaction Intelligence System.
-          </h2>
-          <p className="text-[#4A5568] text-center max-w-2xl mx-auto mb-14">
-            The EFA curriculum is organised around the five domains that define the modern deal professional — from private equity and M&A to technical modelling, special situations, and frontier finance.
-          </p>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
-            {pillars.map((p) => (
-              <div key={p.num} className="pillar-card bg-white p-6">
-                <p className="text-[#C9A84C] text-2xl font-bold mb-3">{p.num}</p>
-                <h3 className="font-serif text-[#1A2E4A] text-base font-bold mb-4 leading-snug">{p.title}</h3>
-                <ul className="space-y-1">
-                  {p.items.map((item) => (
-                    <li key={item} className="text-[#4A5568] text-xs flex gap-1.5">
-                      <span className="text-[#C9A84C] mt-0.5 shrink-0">·</span>
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-                <p className="text-[#aaa] text-xs mt-4 italic">
-                  {p.num === "05" ? "Live & Coming Soon" : "Coming Soon"}
-                </p>
-              </div>
-            ))}
+      {/* ── FIVE PILLARS ── */}
+      <section id="pillars" className="section-light section-pad">
+        <div className="container">
+          <div className="pillars-header reveal">
+            <div>
+              <div className="eyebrow">The Curriculum Architecture</div>
+              <h2 className="section-title">Five Pillars.<br />A Complete Transaction<br />Intelligence System.</h2>
+            </div>
+            <div>
+              <p className="pillars-intro-body">The EFA curriculum is organised around the five domains that define the modern deal professional — from private equity and M&A to technical modelling, special situations, and frontier finance.</p>
+            </div>
           </div>
-        </div>
-      </section>
-
-      {/* ── TEAM / CREDIBILITY ────────────────────────────────────────── */}
-      <section className="bg-[#1A2E4A] py-20 px-6 lg:px-10">
-        <div className="max-w-7xl mx-auto">
-          <p className="text-[#C9A84C] text-xs font-bold tracking-[0.2em] uppercase mb-3 text-center">The Team</p>
-          <h2 className="font-serif text-white text-3xl md:text-4xl font-bold mb-8 text-center">
-            Practitioners First. Always.
-          </h2>
-
-          <div className="max-w-3xl mx-auto text-center mb-14">
-            <p className="text-[#C9A84C] text-5xl font-serif mb-4">&ldquo;</p>
-            <p className="text-[#E8D4A0] text-lg leading-relaxed italic mb-6">
-              The team behind Executive Finance Academy brings together decades of deal-making experience across investment banking, private equity, private credit, and corporate finance. Every member is a practitioner first — professionals who have structured transactions, sat on investment committees, managed portfolios, and advised boards across global markets.
-            </p>
-            <p className="text-[#E8D4A0] text-base leading-relaxed">
-              Our perspective is not academic. It is built from the deal room, the term sheet, and the due diligence process. We operate without named profiles because the knowledge itself is the credential.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="pillars-grid">
             {[
-              {
-                label: "Deal Experience",
-                items: ["Investment Banking & M&A Advisory", "Private Equity Fund Management", "Private Credit & Leveraged Finance", "Structured Finance & Securitisation", "Real World Tokenization & Digital Assets", "Venture Capital & Growth Equity"],
-              },
-              {
-                label: "Sector Coverage",
-                items: ["Financial Services & FinTech", "Real Estate & Infrastructure", "Technology & Growth Equity", "Energy & Natural Resources", "Family Office & Wealth Management", "Sovereign & Government Advisory"],
-              },
-              {
-                label: "Jurisdictions",
-                items: ["UK & English Law (Cross-border)", "United States (NYSE / NASDAQ / SEC)", "European Union (MiFID / ESMA)", "Singapore & Hong Kong (MAS / SFC)", "Gulf Markets (DIFC / ADGM)", "Emerging & Frontier Markets"],
-              },
-            ].map((col) => (
-              <div key={col.label} className="bg-[#111F33] p-6 border-t-4 border-[#C9A84C]">
-                <h4 className="text-[#C9A84C] font-semibold text-sm uppercase tracking-widest mb-4">{col.label}</h4>
-                <ul className="space-y-2">
-                  {col.items.map((item) => (
-                    <li key={item} className="text-[#E8D4A0] text-sm flex gap-2">
-                      <span className="text-[#C9A84C] shrink-0">·</span>
-                      {item}
-                    </li>
-                  ))}
+              { num: "01", title: "Private Markets & Alternatives", items: ["Private Equity", "Venture Capital", "Alternative Credit", "Real Estate Funds"], status: "Coming Soon" },
+              { num: "02", title: "Transaction Strategy & M&A", items: ["M&A Execution", "Due Diligence", "Post-Merger Integration", "Carve-outs & Spin-offs"], status: "Coming Soon" },
+              { num: "03", title: "Technical Modelling", items: ["FAST / F1F9 Modelling", "LBO Analysis", "Valuation Frameworks", "Financial Statements"], status: "Coming Soon" },
+              { num: "04", title: "Special Situations", items: ["Distressed M&A", "Debt Restructuring", "Securitisation", "Special Situations"], status: "Coming Soon" },
+              { num: "05", title: "Frontier Finance", items: ["Real World Tokenization", "Islamic Finance & Sukuk", "SPACs", "Digital Asset Structures"], status: "Live & Coming Soon" },
+            ].map((p, i) => (
+              <div key={p.num} className={`pillar-card reveal reveal-delay-${i + 1}`}>
+                <div className="pillar-num">{p.num}</div>
+                <div className="pillar-title">{p.title}</div>
+                <ul className="pillar-items">
+                  {p.items.map((item) => <li key={item}>{item}</li>)}
                 </ul>
+                <span className="pillar-status">{p.status}</span>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ── STANDARDS BAR ─────────────────────────────────────────────── */}
-      <section className="bg-white py-10 px-6 lg:px-10 border-b border-[#D0D4D8]">
-        <div className="max-w-7xl mx-auto text-center">
-          <p className="text-[#4A5568] text-sm tracking-wide">
-            <span className="text-[#1A2E4A] font-semibold">Curriculum standards: </span>
-            FAST Modelling Standard &nbsp;·&nbsp; F1F9 Principles &nbsp;·&nbsp; English Law Foundations &nbsp;·&nbsp; Global Regulatory Frameworks
-          </p>
+      {/* ── CURRICULUM BAR ── */}
+      <div className="curriculum-bar">
+        <span className="curriculum-bar-label">Curriculum standards</span>
+        <div className="curriculum-standards">
+          <span>FAST Modelling Standard</span>
+          <span>F1F9 Principles</span>
+          <span>English Law Foundations</span>
+          <span>Global Regulatory Frameworks</span>
         </div>
-      </section>
+      </div>
 
-      {/* ── FAQ ───────────────────────────────────────────────────────── */}
-      <section className="bg-[#F4F5F6] py-20 px-6 lg:px-10">
-        <div className="max-w-4xl mx-auto">
-          <p className="text-[#C9A84C] text-xs font-bold tracking-[0.2em] uppercase mb-3">Frequently Asked Questions</p>
-          <h2 className="font-serif text-[#1A2E4A] text-3xl font-bold mb-12">
-            Common Questions About EFA
-          </h2>
-          <div className="space-y-0 divide-y divide-[#D0D4D8]">
-            {faqs.map((faq) => (
-              <details key={faq.q} className="group py-5">
-                <summary className="flex justify-between items-start gap-4 cursor-pointer list-none">
-                  <h3 className="font-serif text-[#1A2E4A] text-base font-semibold leading-snug group-open:text-[#C9A84C] transition-colors">
-                    {faq.q}
-                  </h3>
-                  <span className="text-[#C9A84C] shrink-0 text-lg font-light mt-0.5 group-open:rotate-45 transition-transform">+</span>
-                </summary>
-                <p className="text-[#4A5568] text-sm leading-relaxed mt-4 max-w-2xl">
-                  {faq.a}
-                </p>
-              </details>
-            ))}
+      {/* ── TEAM ── */}
+      <section id="team" className="section-dark section-pad">
+        <div className="container">
+          <div className="eyebrow" style={{ justifyContent: "center", display: "flex" }}>The Team</div>
+          <div className="team-quote-block reveal">
+            <span className="team-quotemark">&ldquo;</span>
+            <blockquote className="team-quote">The team behind Executive Finance Academy brings together decades of deal-making experience across investment banking, private equity, private credit, and corporate finance. Every member is a practitioner first — professionals who have structured transactions, sat on investment committees, managed portfolios, and advised boards across global markets.</blockquote>
+            <p className="team-quote-sub">Our perspective is not academic. It is built from the deal room, the term sheet, and the due diligence process. We operate without named profiles because the knowledge itself is the credential.</p>
+          </div>
+          <div className="team-cols">
+            <div className="team-col reveal reveal-delay-1">
+              <div className="team-col-heading">Deal Experience</div>
+              <ul className="team-col-items">
+                <li>Investment Banking &amp; M&amp;A Advisory</li>
+                <li>Private Equity Fund Management</li>
+                <li>Private Credit &amp; Leveraged Finance</li>
+                <li>Structured Finance &amp; Securitisation</li>
+                <li>Real World Tokenization &amp; Digital Assets</li>
+              </ul>
+            </div>
+            <div className="team-col reveal reveal-delay-2">
+              <div className="team-col-heading">Sector Coverage</div>
+              <ul className="team-col-items">
+                <li>Financial Services &amp; FinTech</li>
+                <li>Real Estate &amp; Infrastructure</li>
+                <li>Technology &amp; Growth Equity</li>
+                <li>Energy &amp; Natural Resources</li>
+                <li>Family Office &amp; Wealth Management</li>
+              </ul>
+            </div>
+            <div className="team-col reveal reveal-delay-3">
+              <div className="team-col-heading">Jurisdictions</div>
+              <ul className="team-col-items">
+                <li>UK &amp; English Law (Cross-border)</li>
+                <li>United States (NYSE / NASDAQ / SEC)</li>
+                <li>European Union (MiFID / ESMA)</li>
+                <li>Singapore &amp; Hong Kong (MAS / SFC)</li>
+                <li>Gulf Markets (DIFC / ADGM)</li>
+              </ul>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* ── CTA ───────────────────────────────────────────────────────── */}
-      <section className="bg-white py-24 px-6 lg:px-10">
-        <div className="max-w-3xl mx-auto text-center">
-          <div className="gold-rule mx-auto" />
-          <h2 className="font-serif text-[#1A2E4A] text-3xl md:text-4xl font-bold mb-5">
-            Ready to Invest in Deal-Level Intelligence?
-          </h2>
-          <p className="text-[#4A5568] text-base leading-relaxed mb-10">
-            Join a global cohort of finance executives, principals, and senior practitioners — and build the technical frameworks that separate good advisors from exceptional ones.
-          </p>
-          <div className="flex flex-wrap justify-center gap-4">
-            <Link
-              href="/courses"
-              className="px-8 py-4 bg-[#1A2E4A] text-white font-bold text-sm tracking-wide hover:bg-[#111F33] transition-colors"
-            >
-              View All Courses
-            </Link>
-            <Link
-              href="/enrol"
-              className="px-8 py-4 border border-[#1A2E4A] text-[#1A2E4A] font-semibold text-sm tracking-wide hover:bg-[#1A2E4A] hover:text-white transition-colors"
-            >
-              Enrolment Enquiry
-            </Link>
+      {/* ── FAQ ── */}
+      <section className="section-light section-pad">
+        <div className="container">
+          <div style={{ textAlign: "center", marginBottom: "64px" }}>
+            <div className="eyebrow" style={{ justifyContent: "center", display: "flex" }}>Frequently Asked Questions</div>
+            <h2 className="section-title">Common Questions<br />About EFA</h2>
           </div>
-          <p className="text-[#4A5568]/60 text-sm mt-6 italic">
-            Cohort enrolments open quarterly. Institutional group pricing available on request.
-          </p>
+          <FaqAccordion />
         </div>
       </section>
+
+      {/* ── CTA BAND ── */}
+      <div className="cta-band">
+        <div className="cta-band-left">
+          <h2 className="cta-band-title">Ready to operate at<br />deal-room standard?</h2>
+          <p className="cta-band-body">Enrol in our inaugural Real World Tokenization programme and acquire the institutional frameworks your mandate requires.</p>
+        </div>
+        <div className="cta-band-actions">
+          <Link href="/courses" className="btn-primary">Explore Courses</Link>
+          <Link href="#pillars" className="btn-ghost">View Curriculum</Link>
+        </div>
+      </div>
     </>
   );
 }

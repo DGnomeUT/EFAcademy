@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import ScrollReveal from "@/components/ScrollReveal";
 
 export const metadata: Metadata = {
   title: {
@@ -40,10 +41,7 @@ export const metadata: Metadata = {
     description:
       "Practitioner-built online finance courses for CFOs, fund managers, and senior investment professionals. Real World Tokenization, Private Equity, M&A and more.",
   },
-  robots: {
-    index: true,
-    follow: true,
-  },
+  robots: { index: true, follow: true },
 };
 
 const orgSchema = {
@@ -53,19 +51,12 @@ const orgSchema = {
   alternateName: "EFA",
   url: "https://executivefinanceacademy.com",
   description:
-    "Executive Finance Academy is a global online finance education platform offering practitioner-built courses for senior finance professionals including CFOs, fund managers, private equity principals, and investment bankers. EFA programmes cover private markets, transaction structuring, digital assets, and frontier finance — designed for executives operating across international capital markets.",
+    "Executive Finance Academy is a global online finance education platform offering practitioner-built courses for senior finance professionals including CFOs, fund managers, private equity principals, and investment bankers.",
   email: "hello@executivefinanceacademy.com",
   knowsAbout: [
-    "Executive Finance Education",
-    "Real World Asset Tokenization",
-    "Private Equity",
-    "Mergers and Acquisitions",
-    "Leveraged Finance",
-    "Private Credit",
-    "Financial Modelling",
-    "Investment Banking",
-    "Corporate Finance",
-    "Digital Securities",
+    "Executive Finance Education", "Real World Asset Tokenization", "Private Equity",
+    "Mergers and Acquisitions", "Leveraged Finance", "Private Credit",
+    "Financial Modelling", "Investment Banking", "Corporate Finance", "Digital Securities",
   ],
   hasOfferCatalog: {
     "@type": "OfferCatalog",
@@ -74,24 +65,14 @@ const orgSchema = {
       {
         "@type": "Course",
         name: "Real World Tokenization — Foundation Programme",
-        description:
-          "The institutional framework for tokenising private assets and designing compliant digital securities. 8 modules. On-demand.",
-        offers: {
-          "@type": "Offer",
-          price: "500",
-          priceCurrency: "USD",
-        },
+        description: "The institutional framework for tokenising private assets and designing compliant digital securities. 8 modules. On-demand.",
+        offers: { "@type": "Offer", price: "500", priceCurrency: "USD" },
       },
       {
         "@type": "Course",
         name: "Real World Tokenization — Executive Programme",
-        description:
-          "Everything in the Foundation Programme plus 46 video lessons across 16 modules, detailed module notes, executive question sets, and curated bibliographies. The complete institutional reference.",
-        offers: {
-          "@type": "Offer",
-          price: "1250",
-          priceCurrency: "USD",
-        },
+        description: "Everything in the Foundation Programme plus 46 video lessons across 16 modules, detailed module notes, executive question sets, and curated bibliographies.",
+        offers: { "@type": "Offer", price: "1250", priceCurrency: "USD" },
       },
     ],
   },
@@ -108,6 +89,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body>
         <Navbar />
+        <ScrollReveal />
         <main>{children}</main>
         <Footer />
       </body>

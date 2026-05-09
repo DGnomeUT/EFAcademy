@@ -1,91 +1,64 @@
 "use client";
-import { useState, useEffect } from "react";
-import Image from "next/image";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 
 export default function Navbar() {
-  const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const hamburgerRef = useRef<HTMLButtonElement>(null);
+  const menuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 60);
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
+    const handleClick = (e: MouseEvent) => {
+      if (
+        hamburgerRef.current && !hamburgerRef.current.contains(e.target as Node) &&
+        menuRef.current && !menuRef.current.contains(e.target as Node)
+      ) {
+        setMenuOpen(false);
+      }
+    };
+    document.addEventListener("click", handleClick);
+    return () => document.removeEventListener("click", handleClick);
   }, []);
 
-  const navLinks = [
-    { label: "Courses", href: "/courses" },
-    { label: "Knowledge Base", href: "/knowledge-base" },
-    { label: "About", href: "/about" },
-  ];
+  const close = () => setMenuOpen(false);
 
   return (
-    <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? "bg-[#1A2E4A] shadow-lg" : "bg-[#1A2E4A]/95 backdrop-blur-sm"
-      }`}
-    >
-      <div className="max-w-7xl mx-auto px-6 lg:px-10 flex items-center justify-between h-18 py-3">
-        {/* Logo */}
-        <Link href="/" className="flex items-center gap-3 shrink-0">
-          <Image src="/logo-full.png" alt="Executive Finance Academy" width={200} height={60} priority className="h-12 w-auto" />
+    <>
+      <nav className="efa-nav">
+        <Link href="/" className="nav-logo">
+          <div className="nav-logo-mark">
+            <svg viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M9 1L16 5.5V12.5L9 17L2 12.5V5.5L9 1Z" stroke="#C9A85C" strokeWidth="0.8" fill="none"/>
+              <path d="M9 5L13 7.5V12.5L9 15L5 12.5V7.5L9 5Z" stroke="#C9A85C" strokeWidth="0.5" fill="none" opacity="0.5"/>
+            </svg>
+          </div>
+          <div className="nav-logo-text">Executive<br/>Finance Academy</div>
         </Link>
 
-        {/* Desktop nav */}
-        <div className="hidden md:flex items-center gap-8">
-          {navLinks.map((l) => (
-            <Link
-              key={l.href}
-              href={l.href}
-              className="nav-link text-[#E8D4A0] hover:text-[#C9A84C] text-sm font-medium tracking-wide"
-            >
-              {l.label}
-            </Link>
-          ))}
-          <Link
-            href="/enrol"
-            className="ml-4 px-5 py-2.5 border border-[#C9A84C] text-[#C9A84C] text-sm font-semibold hover:bg-[#C9A84C] hover:text-[#1A2E4A] transition-all duration-200"
-          >
-            Enrol Now
-          </Link>
-        </div>
+        <ul className="nav-links">
+          <li><Link href="/courses">Courses</Link></li>
+          <li><Link href="/knowledge-base">Knowledge Base</Link></li>
+          <li><Link href="/about">About</Link></li>
+        </ul>
 
-        {/* Mobile hamburger */}
+        <Link href="/enrol" className="nav-cta">Enrol Now</Link>
+
         <button
-          className="md:hidden text-[#E8D4A0] p-2"
-          onClick={() => setMenuOpen(!menuOpen)}
-          aria-label="Toggle menu"
+          ref={hamburgerRef}
+          className={`nav-hamburger${menuOpen ? " open" : ""}`}
+          aria-label="Menu"
+          onClick={() => setMenuOpen((o) => !o)}
         >
-          <div className="w-6 flex flex-col gap-1.5">
-            <span className={`block h-px bg-current transition-all ${menuOpen ? "rotate-45 translate-y-2.5" : ""}`} />
-            <span className={`block h-px bg-current transition-all ${menuOpen ? "opacity-0" : ""}`} />
-            <span className={`block h-px bg-current transition-all ${menuOpen ? "-rotate-45 -translate-y-2.5" : ""}`} />
-          </div>
+          <span /><span /><span />
         </button>
-      </div>
+      </nav>
 
-      {/* Mobile menu */}
-      {menuOpen && (
-        <div className="md:hidden bg-[#111F33] px-6 pb-6 pt-2 flex flex-col gap-4">
-          {navLinks.map((l) => (
-            <Link
-              key={l.href}
-              href={l.href}
-              className="text-[#E8D4A0] hover:text-[#C9A84C] text-base font-medium py-2 border-b border-[#1A2E4A]"
-              onClick={() => setMenuOpen(false)}
-            >
-              {l.label}
-            </Link>
-          ))}
-          <Link
-            href="/enrol"
-            className="mt-2 px-5 py-3 border border-[#C9A84C] text-[#C9A84C] text-sm font-semibold text-center hover:bg-[#C9A84C] hover:text-[#1A2E4A]"
-            onClick={() => setMenuOpen(false)}
-          >
-            Enrol Now
-          </Link>
-        </div>
-      )}
-    </nav>
+      <div ref={menuRef} className={`mobile-menu${menuOpen ? " open" : ""}`}>
+        <Link href="/courses" onClick={close}>Courses</Link>
+        <Link href="/knowledge-base" onClick={close}>Knowledge Base</Link>
+        <Link href="/about" onClick={close}>About</Link>
+        <Link href="/enrol" onClick={close} style={{ color: "var(--gold)" }}>Enrol Now →</Link>
+      </div>
+    </>
   );
 }

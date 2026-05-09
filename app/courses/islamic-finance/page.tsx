@@ -1,4 +1,12 @@
+import type { Metadata } from "next";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Islamic Finance & Shariah-Compliant Structuring | Coming Soon",
+  description:
+    "A practitioner's guide to Shariah-compliant transactions in global capital markets. AAOIFI-aligned. 10 modules. Register your interest for early-access pricing.",
+  alternates: { canonical: "https://executivefinanceacademy.com/courses/islamic-finance" },
+};
 
 const modules = [
   { num: "01", title: "First Principles of Islamic Finance", topics: "Riba, Gharar, Maysir in transaction context; risk-sharing vs. risk-transfer; AAOIFI overview" },
@@ -16,96 +24,145 @@ const modules = [
 export default function IslamicFinancePage() {
   return (
     <>
-      <section className="bg-[#1A2E4A] pt-32 pb-16 px-6 lg:px-10">
-        <div className="max-w-7xl mx-auto">
-          <p className="text-[#E8D4A0]/60 text-sm mb-6">
-            <Link href="/" className="hover:text-[#C9A84C]">Home</Link>
-            <span className="mx-2">›</span>
-            <Link href="/courses" className="hover:text-[#C9A84C]">Courses</Link>
-            <span className="mx-2">›</span>
-            <span className="text-[#E8D4A0]">Islamic Finance</span>
-          </p>
-          <span className="inline-flex items-center gap-2 text-[#888] text-xs font-bold tracking-[0.2em] uppercase mb-3">
-            <span className="bg-[#888]/20 text-[#aaa] px-2 py-0.5 text-xs">COMING SOON</span>
-            Islamic Finance & Shariah &nbsp;·&nbsp; Intermediate–Advanced
-          </span>
-          <h1 className="font-serif text-white/80 text-4xl md:text-5xl font-bold mt-3 mb-4 max-w-3xl">
-            Islamic Finance & Shariah-Compliant Structuring
+      {/* Hero */}
+      <section className="page-hero">
+        <div className="container">
+          <div className="breadcrumb">
+            <Link href="/">Home</Link>
+            <span style={{ color: "#3e3e4a" }}>›</span>
+            <Link href="/courses">Courses</Link>
+            <span style={{ color: "#3e3e4a" }}>›</span>
+            <span style={{ color: "#8a8a9a" }}>Islamic Finance</span>
+          </div>
+          <div style={{ display: "inline-flex", alignItems: "center", gap: "12px", marginBottom: "16px" }}>
+            <span style={{ fontSize: "10px", fontWeight: 500, letterSpacing: "0.2em", textTransform: "uppercase", background: "#2e2e36", color: "#8a8a9a", padding: "4px 12px" }}>
+              Coming Soon
+            </span>
+            <span style={{ fontSize: "11px", letterSpacing: "0.15em", textTransform: "uppercase", color: "#5a5a6a" }}>
+              Islamic Finance & Shariah
+            </span>
+          </div>
+          <h1 className="page-h1" style={{ opacity: 0.75 }}>
+            Islamic Finance &<br />
+            <em>Shariah-Compliant Structuring</em>
           </h1>
-          <p className="text-[#E8D4A0]/70 text-xl italic max-w-2xl mb-8 leading-relaxed">
-            From theoretical compliance to high-fidelity product engineering — a practitioner&apos;s guide to Shariah-compliant transactions in global capital markets.
+          <p style={{ fontSize: "17px", fontStyle: "italic", lineHeight: "1.7", color: "#5a5a6a", maxWidth: "580px", marginBottom: "16px", fontFamily: "var(--serif)" }}>
+            From theoretical compliance to high-fidelity product engineering — a practitioner&apos;s guide to
+            Shariah-compliant transactions in global capital markets.
           </p>
-          <div className="flex flex-wrap gap-x-8 gap-y-2 text-sm text-[#E8D4A0]/60 mb-8">
-            <span>10 Modules</span><span>·</span>
-            <span>On-Demand + Live Q&A</span><span>·</span>
-            <span>AAOIFI-Aligned</span><span>·</span>
+          <div style={{ display: "flex", flexWrap: "wrap", gap: "10px", marginBottom: "40px", fontSize: "12px", color: "#4a4a5a", letterSpacing: "0.06em" }}>
+            <span>10 Modules</span>
+            <span style={{ color: "#3e3e4a" }}>·</span>
+            <span>On-Demand + Live Q&amp;A</span>
+            <span style={{ color: "#3e3e4a" }}>·</span>
+            <span>AAOIFI-Aligned</span>
+            <span style={{ color: "#3e3e4a" }}>·</span>
             <span>Certificate on Completion</span>
           </div>
-          <Link href="/enrol"
-            className="inline-block px-7 py-3.5 border border-[#C9A84C] text-[#C9A84C] font-semibold text-sm hover:bg-[#C9A84C] hover:text-[#1A2E4A] transition-colors">
+          <Link
+            href="/enrol"
+            style={{
+              fontFamily: "var(--sans)", fontSize: "11px", fontWeight: 500, letterSpacing: "0.14em",
+              textTransform: "uppercase", color: "var(--gold)", border: "1px solid var(--gold)",
+              padding: "14px 32px", textDecoration: "none", display: "inline-block", transition: "background 0.2s, color 0.2s",
+            }}
+          >
             Notify Me When Available
           </Link>
         </div>
       </section>
 
-      <div className="max-w-7xl mx-auto px-6 lg:px-10 py-20">
-        <div className="bg-[#F4F5F6] border-l-4 border-[#C9A84C] p-6 mb-14">
-          <p className="text-[#1A2E4A] font-semibold mb-1">Registration of Interest Now Open</p>
-          <p className="text-[#4A5568] text-sm">
-            This course is currently in development. Register your interest below and we will notify you as soon as enrolment opens.
-            Registered practitioners will receive early-access pricing.
-          </p>
+      {/* Registration notice */}
+      <section className="section-grey" style={{ padding: "40px 0" }}>
+        <div className="container">
+          <div
+            style={{
+              display: "flex", justifyContent: "space-between", alignItems: "center", gap: "40px",
+              padding: "32px 40px", background: "var(--cream)", borderLeft: "2px solid var(--gold)",
+            }}
+          >
+            <div>
+              <p style={{ fontFamily: "var(--serif)", fontSize: "17px", fontWeight: 400, color: "var(--ink)", marginBottom: "8px" }}>
+                Registration of Interest Now Open
+              </p>
+              <p className="section-body" style={{ fontSize: "14px" }}>
+                This course is currently in development. Register your interest and we will notify you as soon as
+                enrolment opens. Registered practitioners will receive early-access pricing.
+              </p>
+            </div>
+            <Link href="/enrol" className="btn-primary" style={{ flexShrink: 0 }}>Register Interest</Link>
+          </div>
         </div>
+      </section>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-14">
-          <div className="lg:col-span-2">
-            <div className="gold-rule" />
-            <h2 className="font-serif text-[#1A2E4A] text-2xl font-bold mb-4">Course Overview</h2>
-            <p className="text-[#4A5568] leading-relaxed mb-4">
-              The Islamic finance industry manages over $4 trillion in assets globally, yet practitioner education has remained confined to certification courses that teach compliance theory rather than deal execution. The result is a generation of professionals who can identify a Murabaha but cannot structure one for a complex cross-border transaction.
-            </p>
-            <p className="text-[#4A5568] leading-relaxed mb-4">
-              This programme dismantles the conventional view of Islamic finance as a subset of ethical banking and reconstructs it as a sophisticated risk-sharing framework with its own product engineering logic. Every module focuses on the practical application of AAOIFI standards in the context of real transactions.
-            </p>
-            <p className="text-[#4A5568] leading-relaxed">
-              <strong className="text-[#1A2E4A]">Who this is for:</strong> Investment bankers, corporate financiers, private equity professionals, lawyers, and treasury managers operating — or aspiring to operate — in GCC, UK, Malaysian, or Indonesian capital markets.
-            </p>
+      {/* Content + sidebar */}
+      <section className="section-pad section-light">
+        <div
+          className="container content-with-sidebar"
+        >
+          {/* Main */}
+          <div>
+            <div style={{ marginBottom: "48px" }} className="reveal">
+              <div className="gold-rule" />
+              <h2 className="section-h2">Course Overview</h2>
+              <div className="section-body" style={{ display: "flex", flexDirection: "column", gap: "18px" }}>
+                <p>
+                  The Islamic finance industry manages over $4 trillion in assets globally, yet practitioner education
+                  has remained confined to certification courses that teach compliance theory rather than deal execution.
+                  The result is a generation of professionals who can identify a Murabaha but cannot structure one for
+                  a complex cross-border transaction.
+                </p>
+                <p>
+                  This programme dismantles the conventional view of Islamic finance as a subset of ethical banking
+                  and reconstructs it as a sophisticated risk-sharing framework with its own product engineering logic.
+                  Every module focuses on the practical application of AAOIFI standards in the context of real transactions.
+                </p>
+                <p>
+                  <strong style={{ color: "var(--ink)", fontWeight: 500 }}>Who this is for:</strong>{" "}
+                  Investment bankers, corporate financiers, private equity professionals, lawyers, and treasury managers
+                  operating — or aspiring to operate — in GCC, UK, Malaysian, or Indonesian capital markets.
+                </p>
+              </div>
+            </div>
 
-            <div className="gold-rule mt-12" />
-            <h2 className="font-serif text-[#1A2E4A] text-2xl font-bold mb-6">Module Outline (Preview)</h2>
-            <div className="space-y-4">
-              {modules.map((m) => (
-                <div key={m.num} className="border border-[#D0D4D8] p-5 opacity-80">
-                  <div className="flex gap-4 items-baseline">
-                    <span className="text-[#C9A84C] font-bold text-sm shrink-0">{m.num}</span>
+            <div className="reveal">
+              <div className="gold-rule" />
+              <h2 className="section-h2">Module Outline (Preview)</h2>
+              <div className="module-list" style={{ opacity: 0.8 }}>
+                {modules.map((m) => (
+                  <div key={m.num} className="module-item">
+                    <span className="module-num">{m.num}</span>
                     <div>
-                      <p className="text-[#1A2E4A] font-semibold mb-1">{m.title}</p>
-                      <p className="text-[#4A5568] text-sm">{m.topics}</p>
+                      <p className="module-title">{m.title}</p>
+                      <p className="module-topics">{m.topics}</p>
                     </div>
                   </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </div>
 
-          <aside>
-            <div className="sticky top-24 bg-[#F4F5F6] border-t-4 border-[#C9A84C] p-6">
-              <h3 className="font-serif text-[#1A2E4A] text-lg font-bold mb-2">Register Your Interest</h3>
-              <p className="text-[#4A5568] text-sm mb-5">Be first to know when this course opens for enrolment.</p>
-              <Link href="/enrol"
-                className="block w-full py-3.5 bg-[#1A2E4A] text-white font-bold text-sm text-center hover:bg-[#111F33] transition-colors mb-4">
+          {/* Sidebar */}
+          <aside style={{ position: "sticky", top: "88px" }} className="reveal">
+            <div className="sidebar-card">
+              <h3 className="section-h3" style={{ marginBottom: "12px" }}>Register Your Interest</h3>
+              <p className="section-body" style={{ fontSize: "14px", marginBottom: "24px" }}>
+                Be first to know when this course opens for enrolment. Early registrants receive priority access and
+                introductory pricing.
+              </p>
+              <Link href="/enrol" className="btn-enrol-gold" style={{ display: "block", textAlign: "center", padding: "14px" }}>
                 Register Interest
               </Link>
-              <dl className="space-y-3 text-sm border-t border-[#D0D4D8] pt-4">
-                <div className="flex justify-between"><dt className="text-[#4A5568]">Modules</dt><dd className="text-[#1A2E4A] font-medium">10</dd></div>
-                <div className="flex justify-between"><dt className="text-[#4A5568]">Standard</dt><dd className="text-[#1A2E4A] font-medium">AAOIFI-Aligned</dd></div>
-                <div className="flex justify-between"><dt className="text-[#4A5568]">Level</dt><dd className="text-[#1A2E4A] font-medium">Int.–Advanced</dd></div>
-                <div className="flex justify-between"><dt className="text-[#4A5568]">Certificate</dt><dd className="text-[#1A2E4A] font-medium">On Completion</dd></div>
-              </dl>
+              <div className="spec-table" style={{ marginTop: "24px" }}>
+                <div className="spec-row"><span className="spec-label">Modules</span><span className="spec-value">10</span></div>
+                <div className="spec-row"><span className="spec-label">Standard</span><span className="spec-value">AAOIFI-Aligned</span></div>
+                <div className="spec-row"><span className="spec-label">Level</span><span className="spec-value">Int.–Advanced</span></div>
+                <div className="spec-row"><span className="spec-label">Certificate</span><span className="spec-value">On Completion</span></div>
+              </div>
             </div>
           </aside>
         </div>
-      </div>
+      </section>
     </>
   );
 }
