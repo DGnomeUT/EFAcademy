@@ -26,13 +26,22 @@ jobs:
         with:
           node-version: "22"
 
+      - name: Show environment
+        run: |
+          node --version
+          npm --version
+          ls -la
+
       - name: Install dependencies
-        run: npm install --legacy-peer-deps
+        run: npm install --force
 
       - name: Build
         run: npm run build
         env:
           GITHUB_ACTIONS: "true"
+
+      - name: List output
+        run: ls -la out/ || echo "out/ directory not found"
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

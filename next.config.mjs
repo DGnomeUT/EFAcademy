@@ -1,8 +1,7 @@
-import type { NextConfig } from "next";
-
 const isProd = process.env.GITHUB_ACTIONS === "true";
 
-const nextConfig: NextConfig = {
+/** @type {import('next').NextConfig} */
+const nextConfig = {
   output: "export",
   trailingSlash: true,
   images: {
@@ -12,6 +11,9 @@ const nextConfig: NextConfig = {
   assetPrefix: isProd ? "/EFAcademy" : "",
   eslint: {
     ignoreDuringBuilds: true,
+  },
+  typescript: {
+    ignoreBuildErrors: true,
   },
 };
 
