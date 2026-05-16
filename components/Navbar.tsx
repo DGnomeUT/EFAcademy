@@ -41,7 +41,7 @@ export default function Navbar() {
           <li><Link href="/about">About</Link></li>
         </ul>
 
-        <a href="https://the-executive-finance-academy.teachable.com/p/home" target="_blank" rel="noreferrer" className="nav-cta">Enrol Now</a>
+        <a href="https://the-executive-finance-academy.teachable.com/l/products?sortKey=name&sortDirection=asc&page=1" target="_blank" rel="noreferrer" className="nav-cta">Enrol Now</a>
 
         <button
           ref={hamburgerRef}
@@ -57,7 +57,7 @@ export default function Navbar() {
         <Link href="/courses" onClick={close}>Courses</Link>
         <Link href="/knowledge-base" onClick={close}>Knowledge Base</Link>
         <Link href="/about" onClick={close}>About</Link>
-        <a href="https://the-executive-finance-academy.teachable.com/p/home" target="_blank" rel="noreferrer" onClick={close} style={{ color: "var(--gold)" }}>Enrol Now →</a>
+        <a href="https://the-executive-finance-academy.teachable.com/l/products?sortKey=name&sortDirection=asc&page=1" target="_blank" rel="noreferrer" onClick={close} style={{ color: "var(--gold)" }}>Enrol Now →</a>
       </div>
     </>
   );

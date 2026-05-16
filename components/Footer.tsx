@@ -24,7 +24,7 @@ export default function Footer() {
             <li><Link href="/knowledge-base">Knowledge Base</Link></li>
             <li><Link href="/about">About EFA</Link></li>
             <li><Link href="/about">Our Philosophy</Link></li>
-            <li><a href="https://the-executive-finance-academy.teachable.com/p/home" target="_blank" rel="noreferrer">Enrol Now</a></li>
+            <li><a href="https://the-executive-finance-academy.teachable.com/l/products?sortKey=name&sortDirection=asc&page=1" target="_blank" rel="noreferrer">Enrol Now</a></li>
           </ul>
         </div>
         <div>

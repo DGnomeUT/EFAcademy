@@ -14,17 +14,19 @@ export default function EnrolForm() {
     const data = Object.fromEntries(new FormData(form));
 
     try {
-      const res = await fetch("https://formsubmit.co/ajax/theexecutivefinanceacademy@gmail.com", {
+      const res = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify({
+          access_key: "f7407298-3873-458b-b06b-6f1361586470",
+          subject: "New Enquiry — Executive Finance Academy",
+          from_name: "Executive Finance Academy Website",
           ...data,
-          _subject: "New Enquiry — Executive Finance Academy",
-          _template: "table",
         }),
       });
 
-      if (res.ok) {
+      const json = await res.json();
+      if (json.success) {
         setStatus("success");
         form.reset();
       } else {
