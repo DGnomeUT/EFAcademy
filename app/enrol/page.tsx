@@ -33,32 +33,41 @@ export default function EnrolPage() {
           <div className="reveal">
             <div className="gold-rule" />
             <h2 className="section-h2" style={{ marginBottom: "36px" }}>Send an Enquiry</h2>
-            <form style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
+            <form
+              action="https://formsubmit.co/theexecutivefinanceacademy@gmail.com"
+              method="POST"
+              style={{ display: "flex", flexDirection: "column", gap: "20px" }}
+            >
+              <input type="hidden" name="_subject" value="New Enquiry — Executive Finance Academy" />
+              <input type="hidden" name="_captcha" value="false" />
+              <input type="hidden" name="_next" value="https://executivefinanceacademy.com/enrol" />
+              <input type="hidden" name="_template" value="table" />
+
               <div className="form-row-two" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "20px" }}>
                 <div className="form-field">
                   <label className="form-label">Full Name *</label>
-                  <input type="text" required className="form-input" placeholder="Your full name" />
+                  <input type="text" name="Full Name" required className="form-input" placeholder="Your full name" />
                 </div>
                 <div className="form-field">
                   <label className="form-label">Job Title *</label>
-                  <input type="text" required className="form-input" placeholder="Your current role" />
+                  <input type="text" name="Job Title" required className="form-input" placeholder="Your current role" />
                 </div>
               </div>
 
               <div className="form-row-two" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "20px" }}>
                 <div className="form-field">
                   <label className="form-label">Organisation *</label>
-                  <input type="text" required className="form-input" placeholder="Company / institution" />
+                  <input type="text" name="Organisation" required className="form-input" placeholder="Company / institution" />
                 </div>
                 <div className="form-field">
                   <label className="form-label">Email Address *</label>
-                  <input type="email" required className="form-input" placeholder="your@email.com" />
+                  <input type="email" name="email" required className="form-input" placeholder="your@email.com" />
                 </div>
               </div>
 
               <div className="form-field">
                 <label className="form-label">Course of Interest</label>
-                <select className="form-input" style={{ cursor: "pointer" }}>
+                <select name="Course of Interest" className="form-input" style={{ cursor: "pointer" }}>
                   <option value="">Select a course</option>
                   <option>Real World Tokenization — Foundation ($500)</option>
                   <option>Real World Tokenization — Executive ($1,250)</option>
@@ -71,12 +80,13 @@ export default function EnrolPage() {
 
               <div className="form-field" id="group">
                 <label className="form-label">Number of Participants (for group enquiries)</label>
-                <input type="number" min="1" className="form-input" placeholder="e.g. 5" />
+                <input type="number" name="Number of Participants" min="1" className="form-input" placeholder="e.g. 5" />
               </div>
 
               <div className="form-field">
                 <label className="form-label">Message</label>
                 <textarea
+                  name="Message"
                   rows={5}
                   className="form-input"
                   style={{ resize: "none" }}
@@ -105,24 +115,13 @@ export default function EnrolPage() {
               <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
                 <div>
                   <p style={{ fontSize: "10px", letterSpacing: "0.18em", textTransform: "uppercase", color: "var(--gold-dim)", marginBottom: "6px" }}>
-                    General Enquiries
+                    All Enquiries
                   </p>
                   <a
-                    href="mailto:hello@executivefinanceacademy.com"
+                    href="mailto:theexecutivefinanceacademy@gmail.com"
                     style={{ fontSize: "13px", color: "var(--ink-mid)", textDecoration: "none" }}
                   >
-                    hello@executivefinanceacademy.com
-                  </a>
-                </div>
-                <div>
-                  <p style={{ fontSize: "10px", letterSpacing: "0.18em", textTransform: "uppercase", color: "var(--gold-dim)", marginBottom: "6px" }}>
-                    Corporate & Group
-                  </p>
-                  <a
-                    href="mailto:corporate@executivefinanceacademy.com"
-                    style={{ fontSize: "13px", color: "var(--ink-mid)", textDecoration: "none" }}
-                  >
-                    corporate@executivefinanceacademy.com
+                    theexecutivefinanceacademy@gmail.com
                   </a>
                 </div>
               </div>

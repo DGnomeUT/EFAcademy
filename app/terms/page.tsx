@@ -25,10 +25,10 @@ export default function TermsPage() {
           <p className="section-body">
             For any queries regarding terms of access or programme usage, please contact us at{" "}
             <a
-              href="mailto:hello@executivefinanceacademy.com"
+              href="mailto:theexecutivefinanceacademy@gmail.com"
               style={{ color: "var(--gold-dim)", textDecoration: "none" }}
             >
-              hello@executivefinanceacademy.com
+              theexecutivefinanceacademy@gmail.com
             </a>
             .
           </p>

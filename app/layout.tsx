@@ -58,7 +58,7 @@ const orgSchema = {
   url: "https://executivefinanceacademy.com",
   description:
     "Executive Finance Academy is a global online finance education platform offering practitioner-built courses for senior finance professionals including CFOs, fund managers, private equity principals, and investment bankers.",
-  email: "hello@executivefinanceacademy.com",
+  email: "theexecutivefinanceacademy@gmail.com",
   knowsAbout: [
     "Executive Finance Education", "Real World Asset Tokenization", "Private Equity",
     "Mergers and Acquisitions", "Leveraged Finance", "Private Credit",

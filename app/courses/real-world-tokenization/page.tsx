@@ -91,7 +91,7 @@ const faqs = [
   },
   {
     q: "Is group or institutional licensing available?",
-    a: "Yes. Executive Finance Academy offers group licensing for teams of three or more. Group enrolments include all course materials plus a dedicated Q&A session with course authors. Custom cohort options are available for teams of ten or more. Contact corporate@executivefinanceacademy.com or use the enquiry form.",
+    a: "Yes. Executive Finance Academy offers group licensing for teams of three or more. Group enrolments include all course materials plus a dedicated Q&A session with course authors. Custom cohort options are available for teams of ten or more. Contact theexecutivefinanceacademy@gmail.com or use the enquiry form.",
   },
 ];
 
