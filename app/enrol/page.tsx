@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import EnrolForm from "@/components/EnrolForm";
 
 export const metadata: Metadata = {
   title: "Enrol & Get in Touch | Executive Finance Academy",
@@ -33,79 +34,7 @@ export default function EnrolPage() {
           <div className="reveal">
             <div className="gold-rule" />
             <h2 className="section-h2" style={{ marginBottom: "36px" }}>Send an Enquiry</h2>
-            <form
-              action="https://formsubmit.co/theexecutivefinanceacademy@gmail.com"
-              method="POST"
-              style={{ display: "flex", flexDirection: "column", gap: "20px" }}
-            >
-              <input type="hidden" name="_subject" value="New Enquiry — Executive Finance Academy" />
-              <input type="hidden" name="_captcha" value="false" />
-              <input type="hidden" name="_next" value="https://executivefinanceacademy.com/enrol" />
-              <input type="hidden" name="_template" value="table" />
-
-              <div className="form-row-two" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "20px" }}>
-                <div className="form-field">
-                  <label className="form-label">Full Name *</label>
-                  <input type="text" name="Full Name" required className="form-input" placeholder="Your full name" />
-                </div>
-                <div className="form-field">
-                  <label className="form-label">Job Title *</label>
-                  <input type="text" name="Job Title" required className="form-input" placeholder="Your current role" />
-                </div>
-              </div>
-
-              <div className="form-row-two" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "20px" }}>
-                <div className="form-field">
-                  <label className="form-label">Organisation *</label>
-                  <input type="text" name="Organisation" required className="form-input" placeholder="Company / institution" />
-                </div>
-                <div className="form-field">
-                  <label className="form-label">Email Address *</label>
-                  <input type="email" name="email" required className="form-input" placeholder="your@email.com" />
-                </div>
-              </div>
-
-              <div className="form-field">
-                <label className="form-label">Course of Interest</label>
-                <select name="Course of Interest" className="form-input" style={{ cursor: "pointer" }}>
-                  <option value="">Select a course</option>
-                  <option>Real World Tokenization — Foundation ($500)</option>
-                  <option>Real World Tokenization — Executive ($1,250)</option>
-                  <option>Islamic Finance & Shariah-Compliant Structuring (Notify Me)</option>
-                  <option>Group / Institutional Licensing</option>
-                  <option>General Enquiry</option>
-                  <option>Corporate Partnership</option>
-                </select>
-              </div>
-
-              <div className="form-field" id="group">
-                <label className="form-label">Number of Participants (for group enquiries)</label>
-                <input type="number" name="Number of Participants" min="1" className="form-input" placeholder="e.g. 5" />
-              </div>
-
-              <div className="form-field">
-                <label className="form-label">Message</label>
-                <textarea
-                  name="Message"
-                  rows={5}
-                  className="form-input"
-                  style={{ resize: "none" }}
-                  placeholder="Tell us about your background and what you are looking to achieve..."
-                />
-              </div>
-
-              <button
-                type="submit"
-                className="btn-primary"
-                style={{ width: "100%", textAlign: "center", padding: "16px", fontSize: "12px" }}
-              >
-                Submit Enquiry
-              </button>
-
-              <p style={{ fontSize: "12px", color: "var(--ink-soft)", textAlign: "center" }}>
-                We respond to all enquiries within 2 business days.
-              </p>
-            </form>
+            <EnrolForm />
           </div>
 
           {/* Sidebar */}
