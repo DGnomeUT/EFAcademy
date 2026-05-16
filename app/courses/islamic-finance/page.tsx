@@ -2,9 +2,23 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Islamic Finance & Shariah-Compliant Structuring | Coming Soon",
+  title: "Islamic Finance & Shariah-Compliant Structuring Course | Executive Finance Academy",
   description:
-    "A practitioner's guide to Shariah-compliant transactions in global capital markets. AAOIFI-aligned. 10 modules. Register your interest for early-access pricing.",
+    "Practitioner-built Islamic finance course for senior finance professionals. Sukuk structuring, Murabaha, Ijarah, Islamic PE, and AAOIFI-aligned governance across 10 modules. GCC, UK, Malaysian, and Indonesian capital markets. Register interest for early-access pricing.",
+  keywords: [
+    "islamic finance course online",
+    "sukuk structuring course",
+    "shariah compliant finance training",
+    "AAOIFI course for finance professionals",
+    "islamic finance certification",
+    "sukuk course",
+    "islamic private equity course",
+    "murabaha structuring training",
+    "islamic capital markets course",
+    "islamic finance for executives",
+    "GCC finance course",
+    "shariah compliant structuring programme",
+  ],
   alternates: { canonical: "https://executivefinanceacademy.com/courses/islamic-finance" },
 };
 
@@ -21,9 +35,33 @@ const modules = [
   { num: "10", title: "Case Studies & Live Transaction Analysis", topics: "Sovereign Sukuk (GCC); Islamic real estate finance (UK); Islamic PE fund (SE Asia)" },
 ];
 
+const courseSchema = {
+  "@context": "https://schema.org",
+  "@type": "Course",
+  name: "Islamic Finance & Shariah-Compliant Structuring",
+  description: "A practitioner's guide to structuring Shariah-compliant transactions in global capital markets. Covers Sukuk, Murabaha, Ijarah, Wakala, Islamic private equity, and AAOIFI-aligned governance across 10 modules.",
+  provider: { "@type": "EducationalOrganization", name: "Executive Finance Academy", url: "https://executivefinanceacademy.com" },
+  courseMode: "online",
+  educationalLevel: "Advanced",
+  about: ["Islamic Finance", "Sukuk", "Shariah-Compliant Structuring", "AAOIFI", "GCC Capital Markets"],
+  availabilityStarts: "2025",
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://executivefinanceacademy.com" },
+    { "@type": "ListItem", position: 2, name: "Courses", item: "https://executivefinanceacademy.com/courses" },
+    { "@type": "ListItem", position: 3, name: "Islamic Finance & Shariah-Compliant Structuring", item: "https://executivefinanceacademy.com/courses/islamic-finance" },
+  ],
+};
+
 export default function IslamicFinancePage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(courseSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       {/* Hero */}
       <section className="page-hero">
         <div className="container">

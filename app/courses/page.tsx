@@ -2,19 +2,25 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Finance Courses for Executives | Online Finance Certification Programmes",
+  title: "Finance Courses for Executives | Practitioner-Built Certification Programmes",
   description:
-    "Browse practitioner-built online finance courses for senior executives. Real World Tokenization Foundation ($500) and Executive ($1,250) available now. Private Equity, M&A, and more coming soon.",
+    "Practitioner-authored finance courses for senior executives. Real World Tokenization Foundation ($500) and Executive ($1,250) enrolling now. Private equity, M&A, leveraged finance, and restructuring programmes in development.",
   keywords: [
     "finance courses for executives",
     "online finance certification",
     "executive finance education",
     "real world tokenization course",
+    "asset tokenization certification",
+    "tokenization course for CFOs",
     "private equity course online",
     "M&A training for executives",
     "leveraged finance course",
+    "islamic finance course online",
+    "sukuk course",
+    "finance courses for fund managers",
     "online finance certificate programme",
     "senior finance training online",
+    "practitioner finance education",
   ],
   alternates: { canonical: "https://executivefinanceacademy.com/courses" },
 };
@@ -24,13 +30,42 @@ const FOUNDATION_URL =
 const EXECUTIVE_URL =
   "https://the-executive-finance-academy.teachable.com/p/asset-tokenization-executive-programme1";
 
-const comingSoon = [
-  "Private Equity: Fund Structure & LBO Modelling",
-  "Distressed M&A & Debt Restructuring",
-  "M&A Execution: From Mandate to Close",
-  "Leveraged Finance & Private Credit",
-  "Due Diligence: A Practitioner's Framework",
-  "Venture Capital: Structure, Terms & Exits",
+const pipeline = [
+  {
+    category: "Private Equity",
+    title: "Private Equity & LBO Modelling",
+    desc: "Fund structures, capital deployment, and the mechanics of a leveraged buyout from sources-and-uses through to exit. Built around the investment committee process, with full return attribution across leverage, multiple expansion, and operational improvement.",
+  },
+  {
+    category: "Private Credit",
+    title: "Private Credit & Leveraged Finance",
+    desc: "Direct lending, unitranche, and the architecture of the syndicated loan and CLO markets. Covers covenant analysis, credit documentation, and how lenders price, structure, and protect downside in a leveraged capital stack.",
+  },
+  {
+    category: "M&A Execution",
+    title: "M&A Execution: From Mandate to Close",
+    desc: "The full transaction lifecycle — origination, valuation, and negotiation through to the share purchase agreement, regulatory clearance, and completion mechanics. Concludes with post-merger integration and the realities of capturing synergies.",
+  },
+  {
+    category: "Special Situations",
+    title: "Distressed M&A & Corporate Restructuring",
+    desc: "Workouts, balance-sheet repair, and the acquisition of stressed and distressed assets. Covers debt restructuring, the creditor hierarchy, and the principal insolvency frameworks across major European and US jurisdictions.",
+  },
+  {
+    category: "Financial Modelling",
+    title: "Financial Modelling: FAST / F1F9 Standard",
+    desc: "Institutional-grade model construction built to a recognised modelling standard — Flexible, Appropriate, Structured, Transparent. The output is an audit-ready model any counterparty analyst can open, follow, and stress without explanation.",
+  },
+  {
+    category: "Due Diligence",
+    title: "Due Diligence: A Practitioner's Framework",
+    desc: "Commercial, financial, and legal diligence as a single coordinated workstream across asset classes. Covers quality-of-earnings analysis, working-capital and net-debt mechanics, and how diligence findings translate into price and protections.",
+  },
+  {
+    category: "Venture Capital",
+    title: "Venture Capital: Structure, Terms & Exits",
+    desc: "Fund formation, term sheet negotiation, and the cap table mathematics that govern dilution and control. Concludes with exit mechanics — secondary sales, trade sales, and IPO — and how each pathway shapes return outcomes.",
+  },
 ];
 
 export default function CoursesPage() {
@@ -41,12 +76,13 @@ export default function CoursesPage() {
         <div className="container">
           <div className="eyebrow">Course Catalogue</div>
           <h1 className="page-h1">
-            Executive Programmes for<br />
-            <em>the Modern Deal Professional.</em>
+            Transaction Intelligence for<br />
+            <em>the Senior Practitioner.</em>
           </h1>
           <p className="page-subtitle">
-            Practitioner-authored and designed for senior finance professionals operating across global capital markets.
-            Five pillars of transaction intelligence — from private equity fundamentals to frontier digital asset structures.
+            Practitioner-authored programmes for finance professionals operating across global capital markets.
+            Each course is reverse-engineered from a live transaction — not adapted from a syllabus — and written
+            at the altitude a CFO, fund principal, or deal lead actually works at.
           </p>
         </div>
       </section>
@@ -60,8 +96,12 @@ export default function CoursesPage() {
               Two programmes. One subject mastered at two levels.
             </h2>
             <p>
-              Both programmes cover tokenisation of real-world assets as a financial instrument. The Executive Programme
-              builds on the Foundation curriculum with a substantially deeper reference library.
+              Tokenisation has moved from conference panel to live mandate. Asset managers are issuing tokenised
+              funds, banks are settling on chain, and regulators across six major jurisdictions have published
+              the frameworks that govern it. Real World Tokenization is built for the executive who now has to
+              evaluate, brief, or build against that reality — and needs the structurer&apos;s view, not the
+              vendor&apos;s pitch. Both programmes cover the same subject; the Executive Programme adds a
+              substantially deeper institutional reference library.
             </p>
           </div>
 
@@ -139,8 +179,13 @@ export default function CoursesPage() {
       {/* Coming soon */}
       <section className="section-pad section-grey">
         <div className="container">
-          <div className="eyebrow reveal">Coming Soon</div>
+          <div className="eyebrow reveal">In Development</div>
           <h2 className="section-h2 reveal">Programmes in Development</h2>
+          <p className="section-body reveal" style={{ maxWidth: "720px", marginBottom: "40px" }}>
+            The catalogue is built deliberately and one programme at a time. Each course below is authored to the
+            same standard as Real World Tokenization — practitioner-written, deal-first, and audit-grade. Register
+            your interest and we will notify you the moment a programme opens for enrolment.
+          </p>
 
           {/* Islamic Finance feature card */}
           <div
@@ -148,12 +193,12 @@ export default function CoursesPage() {
             style={{
               display: "flex", justifyContent: "space-between", alignItems: "flex-start",
               gap: "40px", padding: "40px", background: "var(--cream)",
-              borderLeft: "2px solid var(--divider-light)", marginBottom: "2px", opacity: 0.8,
+              borderLeft: "2px solid var(--gold)", marginBottom: "2px",
             }}
           >
             <div style={{ flex: 1 }}>
-              <p style={{ fontSize: "10px", letterSpacing: "0.2em", textTransform: "uppercase", color: "var(--ink-soft)", marginBottom: "8px" }}>
-                Islamic Finance & Shariah · Intermediate–Advanced
+              <p style={{ fontSize: "10px", letterSpacing: "0.2em", textTransform: "uppercase", color: "var(--gold)", marginBottom: "8px" }}>
+                Featured · Islamic Finance & Shariah · Intermediate–Advanced
               </p>
               <h3
                 className="section-h3"
@@ -163,17 +208,30 @@ export default function CoursesPage() {
               </h3>
               <p className="section-body" style={{ fontSize: "14px", maxWidth: "560px" }}>
                 From theoretical compliance to high-fidelity product engineering — a practitioner&apos;s guide to
-                Shariah-compliant transactions in global capital markets. AAOIFI-aligned. 10 modules.
+                structuring Shariah-compliant transactions in global capital markets. Covers Sukuk, Murabaha,
+                Ijara, and Wakala structures, AAOIFI-aligned governance, and the documentation that makes a
+                deal both economically viable and Shariah-defensible. Ten modules.
               </p>
             </div>
-            <div style={{ flexShrink: 0 }}>
+            <div style={{ flexShrink: 0, display: "flex", flexDirection: "column", gap: "12px" }}>
+              <Link
+                href="/courses/islamic-finance"
+                style={{
+                  display: "inline-block", padding: "12px 28px", textAlign: "center",
+                  border: "1px solid var(--gold)", color: "var(--gold)",
+                  fontSize: "11px", letterSpacing: "0.12em", textTransform: "uppercase",
+                  textDecoration: "none",
+                }}
+              >
+                Preview Programme
+              </Link>
               <Link
                 href="/enrol"
                 style={{
-                  display: "inline-block", padding: "12px 28px",
+                  display: "inline-block", padding: "12px 28px", textAlign: "center",
                   border: "1px solid var(--divider-light)", color: "var(--ink-soft)",
                   fontSize: "11px", letterSpacing: "0.12em", textTransform: "uppercase",
-                  textDecoration: "none", transition: "border-color 0.2s, color 0.2s",
+                  textDecoration: "none",
                 }}
               >
                 Notify Me
@@ -183,10 +241,13 @@ export default function CoursesPage() {
 
           {/* Pipeline grid */}
           <div className="pipeline-grid reveal" style={{ marginTop: "2px" }}>
-            {comingSoon.map((course) => (
-              <div key={course} className="pipeline-item">
-                <p className="pipeline-tag">Pipeline</p>
-                <p className="pipeline-name">{course}</p>
+            {pipeline.map((course) => (
+              <div key={course.title} className="pipeline-item">
+                <p className="pipeline-tag">{course.category}</p>
+                <p className="pipeline-name">{course.title}</p>
+                <p className="section-body" style={{ fontSize: "13px", margin: "12px 0 16px" }}>
+                  {course.desc}
+                </p>
                 <Link
                   href="/enrol"
                   style={{ fontSize: "12px", color: "var(--gold-dim)", textDecoration: "none" }}

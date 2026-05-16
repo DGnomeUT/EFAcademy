@@ -2,51 +2,61 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "About | Practitioner-Led Finance Education for Senior Executives",
+  title: "About Executive Finance Academy | Practitioner-Led Finance Education",
   description:
-    "Executive Finance Academy was founded by senior finance practitioners to bridge the gap between theory and deal execution. Learn about our philosophy, methodology, and what sets us apart.",
+    "Executive Finance Academy is built by practitioners who structure transactions, sit on investment committees, and advise boards. Practitioner-authored online finance courses for CFOs, fund managers, and senior investment professionals — taught from the deal inward, not the textbook outward.",
+  keywords: [
+    "practitioner-led finance education",
+    "executive finance academy about",
+    "finance courses built by practitioners",
+    "online finance education for CFOs",
+    "deal-first finance curriculum",
+    "finance education for senior executives",
+    "investment banking training practitioners",
+    "private equity education online",
+  ],
   alternates: { canonical: "https://executivefinanceacademy.com/about" },
 };
 
 const methodology = [
   {
     title: "Deal-First Curriculum Design",
-    copy: "Every course begins with the end in mind: a real transaction, a real decision, a real conversation. We reverse-engineer the knowledge required to execute, then structure learning around that architecture.",
+    copy: "We do not start with a syllabus and search for applications. We start with a transaction — a buyout, a cross-border acquisition, a tokenised issuance — and ask what an executive must actually know to carry it. The knowledge required to execute becomes the curriculum; everything that does not survive that test is cut.",
   },
   {
     title: "Practitioner Authorship",
-    copy: "Our courses are not designed by curriculum developers or adapted from academic papers. They are authored by practitioners who have sat on deal teams, managed funds, and advised principals.",
+    copy: "No course is written by a curriculum developer or assembled from academic papers. Each is authored by professionals who have sat on deal teams, run investment committees, managed portfolios, and answered to boards. The judgement calls, the failure modes, and the points where a deal quietly goes wrong are written in by people who have seen them.",
   },
   {
     title: "Global Regulatory Coverage",
-    copy: "All regulatory content is written for professionals operating across major financial centres. We cover English law, US securities law, EU directives, and the regulatory regimes of Singapore, Hong Kong, and the Gulf.",
+    copy: "Capital does not respect borders, and neither does our content. Regulatory material is written for professionals operating across financial centres — English law as the prevailing system for international finance, alongside US securities law, EU directives, and the regimes governing Singapore, Hong Kong, and the Gulf.",
   },
   {
     title: "Executive Altitude",
-    copy: "Our content is written for senior professionals — not students. We do not over-explain. We do not use unnecessary jargon. We do not build towards a multiple-choice exam. We build towards a boardroom.",
+    copy: "Our content is written for senior professionals, and the tone reflects it. We do not over-explain, pad with theory, or build towards a multiple-choice exam. We assume the reader is fluent, time-constrained, and accountable — and we write at the altitude they already operate at: the boardroom and the deal room.",
   },
 ];
 
 const standards = [
   {
     std: "FAST Modelling Standard",
-    desc: "All financial models follow FAST principles: Flexible, Appropriate, Structured, Transparent. Models are audit-ready and peer-reviewable by any institutional counterpart.",
+    desc: "Every financial model is built to FAST principles — Flexible, Appropriate, Structured, Transparent. The standard is not decorative: it produces a model a counterparty analyst can open, follow, and stress-test without a walkthrough, and that survives audit and peer review.",
   },
   {
     std: "F1F9 Standard",
-    desc: "Colour-coding, structural hierarchy, and formula logic in all spreadsheet content follows F1F9 conventions for institutional portability and auditability.",
+    desc: "Colour-coding, structural hierarchy, and formula logic across all spreadsheet content follow F1F9 conventions. The result is institutional portability — a model that reads identically whether it lands on a desk in London, New York, or Singapore, with no house style to decode.",
   },
   {
     std: "English Law Foundations",
-    desc: "Cross-border transaction content is grounded in English law as the prevailing legal system for international finance — with coverage of US, EU, and Asia-Pacific frameworks where relevant.",
+    desc: "Cross-border transaction content is grounded in English law, the prevailing system for international finance and the governing law of choice for most cross-border documentation. Coverage extends to US, EU, and Asia-Pacific frameworks wherever a transaction touches them.",
   },
   {
     std: "Global Regulatory Frameworks",
-    desc: "Regulatory content references the frameworks governing the world's major financial centres: FCA (UK), SEC (US), ESMA (EU), MAS (Singapore), SFC (Hong Kong), and DIFC / ADGM (Gulf).",
+    desc: "Regulatory content references the authorities that actually govern the world's major financial centres — the FCA, SEC, ESMA, MAS, SFC, and the DIFC and ADGM in the Gulf. We name the regime and the rule, not a generalised abstraction of it.",
   },
   {
     std: "Executive Altitude",
-    desc: "All content is written for senior finance professionals. We do not over-explain, over-simplify, or design towards a multiple-choice exam. We design towards the boardroom and the deal room.",
+    desc: "All content is pitched for senior finance professionals. We do not over-explain, over-simplify, or design towards an exam. We design towards the moment that matters — the board paper, the IC vote, the negotiation — and write only what is needed to perform there.",
   },
 ];
 
@@ -60,6 +70,7 @@ const teamColumns = [
       "Structured Finance & Securitisation",
       "Real World Tokenization & Digital Assets",
       "Venture Capital & Growth Equity",
+      "Restructuring & Special Situations",
     ],
   },
   {
@@ -71,6 +82,7 @@ const teamColumns = [
       "Energy & Natural Resources",
       "Family Office & Wealth Management",
       "Sovereign & Government Advisory",
+      "Healthcare & Consumer",
     ],
   },
   {
@@ -82,6 +94,7 @@ const teamColumns = [
       "Singapore & Hong Kong (MAS / SFC)",
       "Gulf Markets (DIFC / ADGM)",
       "Emerging & Frontier Markets",
+      "Offshore Fund Domiciles",
     ],
   },
 ];
@@ -98,7 +111,8 @@ export default function AboutPage() {
             <em>From First Principles.</em>
           </h1>
           <p className="page-subtitle">
-            We are practitioners who got tired of training that does not survive contact with a live deal.
+            We are practitioners who grew tired of training that reads well in a classroom and fails on
+            contact with a live deal. Executive Finance Academy is the education we wanted and could not find.
           </p>
         </div>
       </section>
@@ -110,24 +124,45 @@ export default function AboutPage() {
           <h2 className="section-h2 reveal">The EFA Story</h2>
           <div className="section-body reveal" style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
             <p>
-              Executive Finance Academy was founded on a single conviction: that the most consequential gap in
-              professional finance education is not breadth of content, but depth of application.
+              Executive Finance Academy was founded on a single conviction: that the most consequential gap
+              in professional finance education is not breadth of content, but depth of application. There
+              is no shortage of material. There is a shortage of material that can be used.
             </p>
             <p>
-              Most platforms have solved the content problem. They offer hundreds of courses, thousands of articles,
-              and libraries of models. What they have not solved is the logic problem — the ability to take a framework
-              learned in a module and deploy it confidently in the context of a live transaction, a board presentation,
-              or a regulatory filing.
+              Most platforms have solved the content problem comprehensively. They offer hundreds of courses,
+              thousands of articles, and entire libraries of models. What they have not solved is the logic
+              problem — and the logic problem is the one that matters. The logic problem is the distance
+              between a framework understood in a module and a framework deployed under pressure: in a live
+              negotiation, in a board paper that will be voted on, in a regulatory filing that carries a
+              signature and a liability.
             </p>
             <p>
-              EFA was built to solve that problem. Every programme begins with the deal, not the textbook. We ask:
-              what does a Group CFO actually need to know before walking into an M&A discussion? What does a principal
-              need to grasp before authorising a leveraged buyout?
+              In practice that gap is specific, not abstract. A Group CFO walking into an M&A discussion does
+              not need a definition of EBITDA. They need to know which adjustments the other side will
+              contest, where the working-capital peg should sit, what a locked-box mechanism does to their
+              risk between signing and completion, and which warranties they should refuse to give. That is
+              not content. That is judgement — and judgement is what conventional training quietly omits.
             </p>
             <p>
-              The answers to those questions shape every module, every case study, and every piece of content we produce.
-              The result is education designed for professionals operating across global capital markets — not tailored
-              to any single geography or market convention.
+              A live deal, viewed through the lens of this education, is a sequence of decisions made with
+              incomplete information against a clock. The model is one input. The diligence findings are
+              another. The regulatory timetable, the financing conditions, the personalities across the
+              table, and the downside if it breaks are all live at once. Education that prepares a
+              professional for that moment has to teach the whole sequence — not a tidy slice of it
+              abstracted from the noise.
+            </p>
+            <p>
+              EFA was built to close that gap. Every programme begins with the deal, not the textbook. We
+              ask: what does a Group CFO actually need before that M&A discussion? What must a principal
+              grasp before authorising a leveraged buyout? What does a structurer need to defend a tokenised
+              issuance to a regulator? We answer those questions first, then build the curriculum backwards
+              from the answer.
+            </p>
+            <p>
+              The result is education designed for professionals operating across global capital markets —
+              not tailored to a single geography or market convention, not pitched at the analyst seeking a
+              first job, and not diluted to fill a longer syllabus. It is technical, current, and written by
+              people who have carried the same decisions the reader is preparing to make.
             </p>
           </div>
         </div>
@@ -158,15 +193,20 @@ export default function AboutPage() {
           <div className="team-quote-block reveal">
             <span className="team-quotemark">&ldquo;</span>
             <p className="team-quote">
-              The team behind Executive Finance Academy brings together decades of deal-making experience across
-              investment banking, private equity, private credit, and corporate finance. Every member is a practitioner
-              first: professionals who have structured transactions, sat on investment committees, managed portfolios,
-              and advised boards across global markets.
+              The team behind Executive Finance Academy brings together decades of deal-making across
+              investment banking, private equity, private credit, structured finance, and corporate
+              advisory. Every contributor is a practitioner first — professionals who have priced and
+              structured transactions, sat on the investment committees that approved or killed them,
+              managed portfolios through full cycles, and answered to boards when the outcome had to be
+              defended.
             </p>
             <p className="team-quote-sub" style={{ marginTop: "20px" }}>
-              We operate without named profiles because the knowledge itself is the credential. In a world saturated
-              with personal branding and thought leadership content, we prefer to let the depth and applicability of the
-              curriculum make the case.
+              We operate without named profiles by deliberate choice. The curriculum is the credential,
+              and it should stand on its own merits — testable against the reader&apos;s own experience
+              of a live deal, not against a biography. In a market saturated with personal branding and
+              thought-leadership content, we would rather be judged on whether the work holds up in the
+              deal room. If it does, the names are irrelevant. If it does not, the names would not have
+              saved it.
             </p>
           </div>
           <div className="team-cols reveal">
@@ -196,29 +236,37 @@ export default function AboutPage() {
             <div className="card">
               <h3 className="section-h3">vs. Analyst-Focused Platforms</h3>
               <p className="section-body" style={{ fontSize: "14px" }}>
-                Platforms such as Wall Street Prep and Breaking Into Wall Street are designed primarily for students and
-                junior analysts seeking to enter investment banking. Their content teaches you how to build a model to
-                get a job. EFA is built for professionals who already hold senior roles and need frameworks deployable in
-                a live deal, board presentation, or investment committee discussion.
+                Platforms such as Wall Street Prep and Breaking Into Wall Street are built for students and
+                junior analysts trying to enter investment banking. Their purpose is to teach a candidate to
+                build a model well enough to pass an interview and survive a first year on a desk — and they
+                do that job well. EFA starts where that job ends. It is written for professionals who already
+                hold senior roles and need frameworks that hold up in a live deal, a board presentation, or
+                an investment committee vote — where the question is not whether the model is built correctly,
+                but whether the decision behind it is right.
               </p>
             </div>
             <div className="card">
               <h3 className="section-h3">vs. Business School Executive Education</h3>
               <p className="section-body" style={{ fontSize: "14px" }}>
-                Executive education programmes at LBS, INSEAD, and Wharton offer broad management frameworks — often
-                campus-based, cohort-driven, and priced at thousands of pounds. EFA offers the opposite: highly
-                specialised, on-demand technical finance training from $500, authored by active practitioners and
-                designed to be immediately applicable rather than conceptually enriching.
+                Executive programmes at LBS, INSEAD, and Wharton deliver broad management frameworks — often
+                campus-based, cohort-paced, scheduled months ahead, and priced in the thousands. They are
+                valuable for perspective and network. EFA is engineered for the opposite need: deep,
+                specialised, technical finance training, available on demand from $500, authored by active
+                practitioners, and built to be applied the same week it is completed rather than admired in
+                the abstract. One broadens the executive. The other equips them for a specific transaction.
               </p>
             </div>
           </div>
           <div className="card-ink-solid reveal">
             <p className="eyebrow" style={{ marginBottom: "16px" }}>The EFA Position</p>
             <p style={{ fontSize: "15px", lineHeight: "1.8", color: "#8a8a9a" }}>
-              Executive Finance Academy occupies a distinct position in the global finance education market: specialised
-              enough to cover topics at the depth a senior practitioner requires, accessible enough to be completed on
-              demand without leaving your desk, and priced for individual professionals rather than corporate training
-              budgets. It is not a substitute for either of the above — it is a category of its own.
+              Executive Finance Academy occupies a position the existing market leaves open: specialised
+              enough to treat a subject at the depth a senior practitioner genuinely requires, accessible
+              enough to complete on demand without leaving the desk or clearing a calendar, and priced for
+              the individual professional rather than a corporate training budget. It is not a cheaper
+              version of business school, and it is not a more advanced analyst course. It is a distinct
+              category — practitioner education, sold direct to the practitioner — and it is built to be
+              measured against the only standard that counts: whether it works when the deal is real.
             </p>
           </div>
         </div>
